@@ -1,13 +1,331 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>KidBank - Smart Money for Teens</title>
+    <link rel="stylesheet" href="/src/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
+    <div class="app-container">
+      <!-- Navigation -->
+      <nav class="navbar">
+        <div class="navbar-brand">
+          <img src="https://via.placeholder.com/40" alt="Logo" class="logo" />
+          <h1>KidBank</h1>
+        </div>
+        <div class="navbar-menu">
+          <button class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+          </button>
+          <ul class="nav-links" id="navLinks">
+            <li>
+              <a href="#" class="active"><i class="fas fa-home"></i> Home</a>
+            </li>
+            <li>
+              <a href="#"><i class="fas fa-wallet"></i> Wallet</a>
+            </li>
+            <li>
+              <a href="#"><i class="fas fa-chart-pie"></i> Budget</a>
+            </li>
+            <li>
+              <a href="#"><i class="fas fa-book"></i> Learn</a>
+            </li>
+            <li>
+              <a href="#"><i class="fas fa-cog"></i> Settings</a>
+            </li>
+          </ul>
+        </div>
+        <div class="navbar-profile">
+          <span class="notification-badge">
+            <i class="fas fa-bell"></i>
+            <span class="badge">2</span>
+          </span>
+          <div class="profile-pic">
+            <img src="https://via.placeholder.com/35" alt="Profile" />
+          </div>
+        </div>
+      </nav>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <!-- Balance Card -->
+        <section class="balance-card">
+          <div class="card-header">
+            <h2>Your Balance</h2>
+            <span class="card-icon"><i class="fas fa-eye"></i></span>
+          </div>
+          <div class="balance-amount">
+            <span class="currency">$</span>
+            <span class="amount">754.32</span>
+          </div>
+          <div class="balance-actions">
+            <button class="action-btn add-money">
+              <i class="fas fa-plus"></i>
+              <span>Add</span>
+            </button>
+            <button class="action-btn pay">
+              <i class="fas fa-paper-plane"></i>
+              <span>Pay</span>
+            </button>
+            <button class="action-btn request">
+              <i class="fas fa-hand-holding-usd"></i>
+              <span>Request</span>
+            </button>
+          </div>
+        </section>
+
+        <!-- Spending Categories -->
+        <section class="spending-categories">
+          <div class="section-header">
+            <h2>This Month's Spending</h2>
+            <a href="#" class="view-all">View All</a>
+          </div>
+          <div class="category-list">
+            <div class="category-card">
+              <div class="category-icon food">
+                <i class="fas fa-utensils"></i>
+              </div>
+              <div class="category-info">
+                <h3>Food</h3>
+                <div class="progress-bar">
+                  <div class="progress" style="width: 65%"></div>
+                </div>
+                <p>$98.50 <span class="budget">of $150</span></p>
+              </div>
+            </div>
+            <div class="category-card">
+              <div class="category-icon entertainment">
+                <i class="fas fa-gamepad"></i>
+              </div>
+              <div class="category-info">
+                <h3>Entertainment</h3>
+                <div class="progress-bar">
+                  <div class="progress" style="width: 80%"></div>
+                </div>
+                <p>$40.00 <span class="budget">of $50</span></p>
+              </div>
+            </div>
+            <div class="category-card">
+              <div class="category-icon shopping">
+                <i class="fas fa-shopping-bag"></i>
+              </div>
+              <div class="category-info">
+                <h3>Shopping</h3>
+                <div class="progress-bar">
+                  <div class="progress" style="width: 45%"></div>
+                </div>
+                <p>$67.25 <span class="budget">of $150</span></p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Recent Transactions -->
+        <section class="recent-transactions">
+          <div class="section-header">
+            <h2>Recent Transactions</h2>
+            <a href="#" class="view-all">View All</a>
+          </div>
+          <div class="transaction-list">
+            <div class="transaction-card">
+              <div class="transaction-icon spotify">
+                <i class="fab fa-spotify"></i>
+              </div>
+              <div class="transaction-info">
+                <h3>Spotify Premium</h3>
+                <p>Entertainment</p>
+              </div>
+              <div class="transaction-amount">
+                <p class="amount-spent">-$9.99</p>
+                <p class="transaction-date">Mar 01</p>
+              </div>
+            </div>
+            <div class="transaction-card">
+              <div class="transaction-icon starbucks">
+                <i class="fas fa-coffee"></i>
+              </div>
+              <div class="transaction-info">
+                <h3>Starbucks</h3>
+                <p>Food</p>
+              </div>
+              <div class="transaction-amount">
+                <p class="amount-spent">-$5.75</p>
+                <p class="transaction-date">Feb 28</p>
+              </div>
+            </div>
+            <div class="transaction-card restricted">
+              <div class="transaction-icon restricted">
+                <i class="fas fa-ban"></i>
+              </div>
+              <div class="transaction-info">
+                <h3>Restricted Purchase</h3>
+                <p>Attempted purchase was blocked</p>
+              </div>
+              <div class="transaction-amount">
+                <p class="status">Denied</p>
+                <p class="transaction-date">Feb 27</p>
+              </div>
+            </div>
+            <div class="transaction-card">
+              <div class="transaction-icon allowance">
+                <i class="fas fa-gift"></i>
+              </div>
+              <div class="transaction-info">
+                <h3>Allowance</h3>
+                <p>From Mom</p>
+              </div>
+              <div class="transaction-amount positive">
+                <p class="amount-received">+$50.00</p>
+                <p class="transaction-date">Feb 26</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Restricted Purchase Modal -->
+        <div class="modal" id="restrictedModal">
+          <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-icon restricted">
+              <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <h2>Purchase Restricted</h2>
+            <p>
+              This purchase has been restricted because it falls into a category
+              that's not allowed for your account.
+            </p>
+            <p class="item-details">
+              Item: <span id="restrictedItem">Energy Drink</span>
+            </p>
+            <p class="restriction-reason">
+              Reason: <span id="restrictionReason">Age restricted product</span>
+            </p>
+            <button class="modal-btn close-btn">OK, I Understand</button>
+          </div>
+        </div>
+
+        <!-- Payment Simulator -->
+        <section class="payment-simulator">
+          <div class="section-header">
+            <h2>Test Payment Restrictions</h2>
+          </div>
+          <div class="simulator-container">
+            <p class="simulator-description">
+              Try our payment restriction system with these example purchases:
+            </p>
+            <div class="test-purchases">
+              <button
+                class="test-btn allowed"
+                data-item="Movie Ticket"
+                data-amount="12.50"
+                data-category="Entertainment"
+              >
+                <i class="fas fa-ticket-alt"></i>
+                <span>Movie Ticket</span>
+              </button>
+              <button
+                class="test-btn allowed"
+                data-item="Headphones"
+                data-amount="49.99"
+                data-category="Electronics"
+              >
+                <i class="fas fa-headphones"></i>
+                <span>Headphones</span>
+              </button>
+              <button
+                class="test-btn restricted"
+                data-item="Energy Drink"
+                data-amount="3.99"
+                data-category="Age Restricted"
+              >
+                <i class="fas fa-bolt"></i>
+                <span>Energy Drink</span>
+              </button>
+              <button
+                class="test-btn restricted"
+                data-item="Adult Content Subscription"
+                data-amount="14.99"
+                data-category="18+ Content"
+              >
+                <i class="fas fa-user-lock"></i>
+                <span>18+ Subscription</span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Saving Goals -->
+        <section class="saving-goals">
+          <div class="section-header">
+            <h2>Saving Goals</h2>
+            <a href="#" class="add-goal"><i class="fas fa-plus"></i></a>
+          </div>
+          <div class="goals-list">
+            <div class="goal-card">
+              <div class="goal-icon">
+                <i class="fas fa-laptop"></i>
+              </div>
+              <div class="goal-info">
+                <h3>New Laptop</h3>
+                <div class="progress-bar">
+                  <div class="progress" style="width: 35%"></div>
+                </div>
+                <p>$350 <span class="of-target">of $1000</span></p>
+              </div>
+            </div>
+            <div class="goal-card">
+              <div class="goal-icon">
+                <i class="fas fa-tshirt"></i>
+              </div>
+              <div class="goal-info">
+                <h3>Summer Clothes</h3>
+                <div class="progress-bar">
+                  <div class="progress" style="width: 75%"></div>
+                </div>
+                <p>$150 <span class="of-target">of $200</span></p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Bottom Navigation for Mobile -->
+      <div class="bottom-nav">
+        <a href="#" class="bottom-nav-item active">
+          <i class="fas fa-home"></i>
+          <span>Home</span>
+        </a>
+        <a href="#" class="bottom-nav-item">
+          <i class="fas fa-wallet"></i>
+          <span>Wallet</span>
+        </a>
+        <a href="#" class="bottom-nav-item pay-btn">
+          <div class="pay-btn-circle">
+            <i class="fas fa-paper-plane"></i>
+          </div>
+        </a>
+        <a href="#" class="bottom-nav-item">
+          <i class="fas fa-chart-pie"></i>
+          <span>Budget</span>
+        </a>
+        <a href="#" class="bottom-nav-item">
+          <i class="fas fa-book"></i>
+          <span>Learn</span>
+        </a>
+      </div>
+    </div>
+
+    <script src="/src/main.js"></script>
   </body>
 </html>
