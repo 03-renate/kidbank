@@ -1,5 +1,9 @@
 # KidBank - Teen Financial Tool 💰
 
+## Resources
+
+- [Design](https://www.figma.com/design/YkFgB3cGEkEr7rMvtC3wWG/Agency-1---CA?node-id=0-1&t=mGzPBWFzFWYLwIAe-1)
+
 ## Project Overview
 
 The **BankKid** is a web-based financial management tool designed for teens aged 14–18. It helps them track their finances while enforcing age-appropriate restrictions on purchases (e.g., no alcohol, cigarettes, energy drinks, or explicit content). Key features include a balance tracker, transaction history, and a purchase system with built-in safeguards.
