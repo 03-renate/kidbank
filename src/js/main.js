@@ -1,14 +1,36 @@
-
 // DOM Elements
-const menuToggle = document.getElementById("menuToggle");
-const navLinks = document.getElementById("navLinks");
+
 const restrictedModal = document.getElementById("restrictedModal");
 const closeModal = document.querySelector(".close-modal");
 const closeBtn = document.querySelector(".close-btn");
 const testButtons = document.querySelectorAll(".test-btn");
 const restrictedItem = document.getElementById("restrictedItem");
 const restrictionReason = document.getElementById("restrictionReason");
+const sidebar = document.getElementById("sidebar");
+const toggleButton = document.getElementById("toggleSidebar");
 
+
+//Navigation
+
+// Set initial state - expanded on desktop
+if (window.innerWidth > 768) {
+  sidebar.classList.remove("collapsed");
+}
+
+toggleButton.addEventListener("click", () => {
+  // Only toggle on desktop
+  if (window.innerWidth > 768) {
+    sidebar.classList.toggle("collapsed");
+  }
+});
+
+// Check window size on resize
+window.addEventListener("resize", () => {
+  if (window.innerWidth <= 768) {
+    // Reset desktop classes when switching to mobile
+    sidebar.classList.remove("collapsed");
+  }
+});
 
 // Close modal when clicking X or OK button
 closeModal.addEventListener("click", () => {
@@ -698,12 +720,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }, 1000);
 });
-
-
-
-
-
-
 
 // import "./style.css";
 // import javascriptLogo from "./javascript.svg";

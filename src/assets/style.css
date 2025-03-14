@@ -659,6 +659,7 @@ body {
   .nav-links.show li {
     margin: 10px 0;
   }
+  
 }
 
 @media (min-width: 768px) {
@@ -691,6 +692,10 @@ body {
 
   .navbar-brand h1 {
     font-size: 1.3rem;
+  }
+
+  .sidebar {
+    display: none;
   }
 }
 
