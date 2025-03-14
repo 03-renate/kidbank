@@ -149,7 +149,7 @@ body {
   width: 100%;
   width: auto;
   border-radius: 15px;
-  padding: 25px 25px 25px 50px;
+  padding: 25px;
   color: white;
   background: linear-gradient();
   animation: bg 12s ease infinite;
@@ -203,9 +203,8 @@ body {
 
 .action-btn {
   height: auto;
-  width: 100%;
+  width: 50%;
   margin: 1rem;
-  background-color: pink;
   border: none;
   border-radius: 8px;
   padding: 12px;
@@ -213,12 +212,10 @@ body {
   flex-direction: column;
   align-items: center;
   cursor: pointer;
-  flex: 1;
-  transition: background-color 0.3s ease;
+  background-clip: none;
+  color: #7082e6;
+  background-color: #f9f9f9;
 
-  background: -webkit-linear-gradient(50deg, #9d4edd, #ff8500);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .action-btn:hover {
@@ -230,6 +227,43 @@ body {
   margin-bottom: 5px;
 }
 
+.action-btn:hover i{
+  animation: jump 0.8s ease-out;
+}
+
+@keyframes jump {
+  0% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-20px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  70% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* HERO TABLET/PHONE */
+@media only screen and (max-width: 430px) {
+  .hero-container {
+    flex-direction: column;
+  }
+
+  .hero-right{
+    width: 100%;
+  }
+
+  .hero-left{
+    width: 100%;
+    display: flex;
+  }
+}
 /* RENATE - HERO SECTION - END */
 
 
