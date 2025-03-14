@@ -19,44 +19,44 @@
   </head>
   <body>
     <div class="app-container">
+
       <!-- Navigation -->
-      <nav class="navbar">
-        <div class="navbar-brand">
-          <img src="https://via.placeholder.com/40" alt="Logo" class="logo" />
-          <h1>KidBank</h1>
-        </div>
-        <div class="navbar-menu">
-          <button class="menu-toggle" id="menuToggle">
-            <i class="fas fa-bars"></i>
-          </button>
-          <ul class="nav-links" id="navLinks">
-            <li>
-              <a href="#" class="active"><i class="fas fa-home"></i> Home</a>
-            </li>
-            <li>
-              <a href="#"><i class="fas fa-wallet"></i> Wallet</a>
-            </li>
-            <li>
-              <a href="#"><i class="fas fa-chart-pie"></i> Budget</a>
-            </li>
-            <li>
-              <a href="#"><i class="fas fa-book"></i> Learn</a>
-            </li>
-            <li>
-              <a href="#"><i class="fas fa-cog"></i> Settings</a>
-            </li>
-          </ul>
-        </div>
-        <div class="navbar-profile">
-          <span class="notification-badge">
-            <i class="fas fa-bell"></i>
-            <span class="badge">2</span>
+
+     <div class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <span class="logo">Pointsale</span>
+      </div>
+      <ul class="menu-list">
+        <li class="menu-item active">
+          <i class="fas fa-home"></i> <span>Home </span>
+        </li>
+        <li class="menu-item">
+          <i class="fas fa-chart-line"></i> <span>Budget
           </span>
-          <div class="profile-pic">
-            <img src="https://via.placeholder.com/35" alt="Profile" />
-          </div>
+        </li>
+        <li class="menu-item">
+          <i class="fas fa-file-invoice"></i> <span>Wallet</span>
+        </li>
+        <li class="menu-item">
+          <i class="fas fa-users"></i> <span>About/Learn</span>
+        </li>
+        <li class="menu-item">
+          <i class="fas fa-trash"></i> <span>Settings</span>
+        </li>
+      </ul>
+      <div class="user-profile">
+        <div class="avatar">B</div>
+        <div>
+          <div class="user-name">Brooklyn</div>
+          <div class="user-status">Pro trial</div>
         </div>
-      </nav>
+      </div>
+    </div>
+
+    <!-- Toggle button outside sidebar for desktop only -->
+    <button class="toggle-button" id="toggleSidebar">
+      <i class="fas fa-chevron-left toggle-icon"></i>
+    </button>
 
       <!-- Main Content -->
       <main class="main-content">
