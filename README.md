@@ -19,7 +19,7 @@ This project is built with HTML, CSS, JavaScript, to create a responsive and mob
   - Muhammad Hammad Khan
   - Renate Pedersen
   - Sergiu D. Sarbu
-  - Tubhaahmad
+  - Tubha Ahmad
 
 - **Project Management:** GitHub Issues
 - **Contribution Process:**
