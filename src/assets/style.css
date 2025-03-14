@@ -147,15 +147,45 @@ body {
   padding: 20px;
 }
 
-/* Balance Card */
-.balance-card {
-  background: linear-gradient(120deg, #5e72e4, #825ee4);
+/* RENATE - HERO SECTION - START */
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* HERO CARD INFORMATION */
+.hero-right {
+  flex: 2;
+  max-height: 250px;
+  height: 250px;
+  width: 100%;
+  width: auto;
   border-radius: 15px;
   padding: 25px;
-  margin-bottom: 25px;
   color: white;
+  background: linear-gradient();
+  animation: bg 12s ease infinite;
   box-shadow: 0 10px 20px rgba(94, 114, 228, 0.2);
+
+  background: linear-gradient(-120deg, #ff8500, #9d4edd, #0a0908);
+  background-size: 200% 200%;
+  animation: move-bg 15s ease infinite;
 }
+
+@keyframes move-bg {
+  0% {
+    background-position: 30% 40%;
+  }
+  50% {
+    background-position: 80% 0%;
+  }
+  100% {
+    background-position: 30% 40%;
+  }
+}
+
 
 .card-header {
   display: flex;
@@ -164,20 +194,14 @@ body {
   margin-bottom: 15px;
 }
 
-.card-header h2 {
-  font-size: 1.2rem;
-  font-weight: 500;
-}
-
 .card-icon {
   font-size: 1.2rem;
   cursor: pointer;
 }
 
-.balance-amount {
-  margin-bottom: 20px;
-  font-size: 2.5rem;
-  font-weight: 600;
+.balance-amount{
+  display: flex;
+  align-items: center;
 }
 
 .currency {
@@ -185,32 +209,27 @@ body {
   margin-right: 5px;
 }
 
-.balance-actions {
-  display: flex;
-  justify-content: space-between;
+
+/* HERO-LEFT BTNS */
+.hero-left {
+  flex: 1;
 }
 
 .action-btn {
-  background-color: rgba(255, 255, 255, 0.2);
+  height: auto;
+  width: 50%;
+  margin: 1rem;
   border: none;
   border-radius: 8px;
   padding: 12px;
-  color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
   cursor: pointer;
-  flex: 1;
-  margin: 0 5px;
-  transition: background-color 0.3s ease;
-}
+  background-clip: none;
+  color: #7082e6;
+  background-color: #f9f9f9;
 
-.action-btn:first-child {
-  margin-left: 0;
-}
-
-.action-btn:last-child {
-  margin-right: 0;
 }
 
 .action-btn:hover {
@@ -221,6 +240,46 @@ body {
   font-size: 1.2rem;
   margin-bottom: 5px;
 }
+
+.action-btn:hover i{
+  animation: jump 0.8s ease-out;
+}
+
+@keyframes jump {
+  0% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-20px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  70% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* HERO TABLET/PHONE */
+@media only screen and (max-width: 430px) {
+  .hero-container {
+    flex-direction: column;
+  }
+
+  .hero-right{
+    width: 100%;
+  }
+
+  .hero-left{
+    width: 100%;
+    display: flex;
+  }
+}
+/* RENATE - HERO SECTION - END */
+
 
 /* Section Headers */
 .section-header {
