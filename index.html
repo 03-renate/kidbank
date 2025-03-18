@@ -59,39 +59,41 @@
 
       <!-- Main Content -->
       <main class="main-content">
+
         <!-- RENATE - HERO SECTION - START -->
         <section class="hero-container">
+
           <!-- CARD INFORMATION -->
           <article class="hero-right">
             <div class="card-header">
               <p>Your Balance:</p>
-              <span class="card-icon"><i class="fas fa-eye"></i></span>
+              <button onclick="hideShow()" class="card-icon">
+                <i class="fas fa-eye"></i>
+              </button>
             </div>
             <div class="balance-amount">
-              <span class="currency">
+              <div id="blurred-currency" class="currency">
                 <h1>$ Something</h1>
-              </span>
+              </div>
             </div>
-
-            <div class="wave"></div>
-            <div class="wave"></div>
-          </article>
+          </article>          
+          
           
           <!-- HERO BTNS -->
           <article class="hero-left">
-            <button class="action-btn add-money">
+            <button class="action-btn add-money" aria-label="Request Money">
               <i class="fas fa-hand-holding-usd"></i>
               <span>Request</span>
             </button>
-            <button class="action-btn pay">
-              <i class="fa-solid fa-arrow-right-arrow-left"></i>
+            <button class="action-btn pay" aria-label="Transfer Money">
+              <i class="fas fa-arrow-right-arrow-left"></i>
               <span>Transfer</span>
             </button>
-            <button class="action-btn request">
-              <i class="fa-solid fa-piggy-bank"></i>
+            <button class="action-btn request" aria-label="Savings">
+              <i class="fas fa-piggy-bank"></i>
               <span>Savings</span>
             </button>
-          </article>
+          </article>          
         </section>
         <!-- RENATE - HERO SECTION - END -->
 
@@ -338,5 +340,6 @@
     </div>
 
     <script src="/src/js/main.js"></script>
+    <script src="/src/js/eyeBtn.js"></script>
   </body>
 </html>

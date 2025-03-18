@@ -195,6 +195,10 @@ body {
   margin-right: 5px;
 }
 
+#blurred-currency {
+  transition: filter 0.3s ease;
+}
+
 
 /* HERO-LEFT BTNS */
 .hero-left {
