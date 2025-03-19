@@ -5,11 +5,124 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite App</title>
+    <link rel="stylesheet" href="/src/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/9ba1f7d615.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
-    <div id="app"></div>
+    <article id="recent-transactions">
+      <section>
+        <div class="recent-transactions-headings">
+          <h2>Recent Transactions</h2>
+          <button class="view-all-btn">View All</button>
+        </div>
+
+        <div class="payment-history-card">
+          <div class="burger-icon">
+            <i class="fa-solid fa-burger"></i>
+          </div>
+          <div class="history-card-title">
+            <div>Burger</div>
+            <div class="card-sec-title">Food</div>
+          </div>
+          <div class="history-card-info">
+            <div class="money-amount-payed">-$9.99</div>
+            <div class="card-sec-title">Mar 12</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="payment-history-container">
+        <div class="payment-history-card">
+          <div class="shirt-icon">
+            <i class="fa-solid fa-shirt"></i>
+          </div>
+          <div class="history-card-title">
+            <div>Shirt</div>
+            <div class="card-sec-title">Shopping</div>
+          </div>
+          <div class="history-card-info">
+            <div class="money-amount-payed">-$9.99</div>
+            <div class="card-sec-title">Mar 12</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="payment-history-container">
+        <div class="payment-history-card">
+          <div class="coffee-icon">
+            <i class="fa-solid fa-mug-hot"></i>
+          </div>
+          <div class="history-card-title">
+            <div>Coffee</div>
+            <div class="card-sec-title">Food</div>
+          </div>
+          <div class="history-card-info">
+            <div class="money-amount-payed">-$9.99</div>
+            <div class="card-sec-title">Mar 12</div>
+          </div>
+        </div>
+      </section>
+    </article>
+
+    <article id="recent-transactions">
+      <section>
+        <div class="recent-transactions-headings">
+          <h2>This Month's Spending</h2>
+          <button class="view-all-btn">View All</button>
+        </div>
+        <div class="payment-history-card">
+          <div class="food-icon">
+            <i class="fa-solid fa-utensils"></i>
+          </div>
+          <div class="spending-card-title">
+            <div>Food</div>
+            <div class="progress-container">
+              <div class="food-progress-bar"></div>
+            </div>
+            <div class="progress-sec-title">$40.00 of $150.00</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="payment-history-container">
+        <div class="payment-history-card">
+          <div class="entertainment-icon">
+            <i class="fa-solid fa-gamepad"></i>
+          </div>
+          <div class="spending-card-title">
+            <div>Entertainment</div>
+            <div class="progress-container">
+              <div class="entertainment-progress-bar"></div>
+            </div>
+            <div class="progress-sec-title">$40.00 of $50.00</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="payment-history-container">
+        <div class="payment-history-card">
+          <div class="shopping-icon">
+            <i class="fa-solid fa-shirt"></i>
+          </div>
+          <div class="spending-card-title">
+            <div>Shopping</div>
+            <div class="progress-container">
+              <div class="shopping-progress-bar"></div>
+            </div>
+            <div class="progress-sec-title">$32.35 of $80.00</div>
+          </div>
+        </div>
+      </section>
+    </article>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
-
-<div>Hello World</div>
