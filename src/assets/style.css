@@ -181,13 +181,18 @@ body {
 }
 
 .card-icon {
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+  color: white;
   font-size: 1.2rem;
   cursor: pointer;
 }
 
 .balance-amount{
   display: flex;
-  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .currency {
