@@ -26,7 +26,7 @@ body {
   width: 260px;
   height: 100vh;
   background-color: #fff;
-  border-right:1px solid #e1e4e8;
+  border-right: 1px solid #e1e4e8;
   position: fixed;
   top: 0;
   left: 0;
@@ -51,9 +51,9 @@ body {
 }
 
 .logo {
-  font-weight:600;
+  font-weight: 600;
   font-size: 16px;
-  color:#1a202c;
+  color: #1a202c;
   transition: opacity 0.3s ease;
 }
 
@@ -70,10 +70,10 @@ body {
   display: flex;
   align-items: center;
   padding: 12px 16px;
-  color:#4a5568;
+  color: #4a5568;
   font-size: 14px;
-  cursor:L pointer;
-  transition: 0.3s;  
+  cursor: L pointer;
+  transition: 0.3s;
 }
 
 .menu-item i {
@@ -88,7 +88,7 @@ body {
 .menu-item:hover,
 .menu-item.active {
   background-color: #edf2ff;
-  color:#4962e8;
+  color: #4962e8;
   font-weight: 500;
 }
 
@@ -97,7 +97,7 @@ body {
   padding: 16px;
   display: flex;
   align-items: center;
-  border-top:1px solid #f0f4f8;
+  border-top: 1px solid #f0f4f8;
   transition: opacity 0.3s ease;
 }
 
@@ -140,7 +140,6 @@ body {
 .sidebar:not(.colapsed) .toggle-icon {
   transform: rotate(180deg);
 }
-
 
 /* Main Content */
 .main-content {
@@ -186,7 +185,6 @@ body {
   }
 }
 
-
 .card-header {
   display: flex;
   justify-content: space-between;
@@ -199,7 +197,7 @@ body {
   cursor: pointer;
 }
 
-.balance-amount{
+.balance-amount {
   display: flex;
   align-items: center;
 }
@@ -208,7 +206,6 @@ body {
   font-size: 1.8rem;
   margin-right: 5px;
 }
-
 
 /* HERO-LEFT BTNS */
 .hero-left {
@@ -229,7 +226,6 @@ body {
   background-clip: none;
   color: #7082e6;
   background-color: #f9f9f9;
-
 }
 
 .action-btn:hover {
@@ -241,7 +237,7 @@ body {
   margin-bottom: 5px;
 }
 
-.action-btn:hover i{
+.action-btn:hover i {
   animation: jump 0.8s ease-out;
 }
 
@@ -269,17 +265,16 @@ body {
     flex-direction: column;
   }
 
-  .hero-right{
+  .hero-right {
     width: 100%;
   }
 
-  .hero-left{
+  .hero-left {
     width: 100%;
     display: flex;
   }
 }
 /* RENATE - HERO SECTION - END */
-
 
 /* Section Headers */
 .section-header {
@@ -718,7 +713,6 @@ body {
   .nav-links.show li {
     margin: 10px 0;
   }
-  
 }
 
 @media (min-width: 768px) {
@@ -877,4 +871,58 @@ body {
   right: 15px;
   font-size: 24px;
   cursor: pointer;
+}
+/* AssignTask*/
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+.task-card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s;
+}
+.task-card:hover {
+  transform: translateY(-3px);
+}
+
+.checkbox-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  font-size: 1.3rem;
+  color: white;
+  background-color: #5e72e4;
+}
+
+.checkbox-icon.color {
+  background-color: #1db954;
+}
+.task-info {
+  flex: 1;
+}
+.task-amount {
+  text-align: right;
+}
+.amount {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: bl;
+}
+.color-icon-trash {
+  background-color: rgb(128, 128, 128);
+}
+.color-icon-dishes {
+  background-color: #5e72e4;
 }

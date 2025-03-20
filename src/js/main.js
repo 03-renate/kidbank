@@ -9,7 +9,6 @@ const restrictionReason = document.getElementById("restrictionReason");
 const sidebar = document.getElementById("sidebar");
 const toggleButton = document.getElementById("toggleSidebar");
 
-
 //Navigation
 
 // Set initial state - expanded on desktop
@@ -745,6 +744,19 @@ document.addEventListener("DOMContentLoaded", () => {
 // `;
 
 // setupCounter(document.querySelector("#counter"));
+
+// Assign Tasks
+const taskCards = document.querySelectorAll(".task-card");
+taskCards.forEach((task) => {
+  task.addEventListener("click", (event) => {
+    if (event.target.tagName === "INPUT") {
+      event.stopPropagation();
+    }
+    setTimeout(() => {
+      task.remove();
+    }, 1000);
+  });
+});
 
 // Footer
 
