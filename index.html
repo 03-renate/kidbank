@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>KidBank - Smart Money for Teens</title>
     <link rel="stylesheet" href="/src/assets/style.css" />
-    <script src="/src/js/main.js" defer></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -16,75 +15,84 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <script src="/src/js/main.js" defer></script>
   </head>
   <body>
     <div class="app-container">
       <!-- Navigation -->
-      <nav class="navbar">
-        <div class="navbar-brand">
-          <img src="https://via.placeholder.com/40" alt="Logo" class="logo" />
-          <h1>KidBank</h1>
+
+      <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+          <span class="logo">Pointsale</span>
         </div>
-        <div class="navbar-menu">
-          <button class="menu-toggle" id="menuToggle">
-            <i class="fas fa-bars"></i>
-          </button>
-          <ul class="nav-links" id="navLinks">
-            <li>
-              <a href="#" class="active"><i class="fas fa-home"></i> Home</a>
-            </li>
-            <li>
-              <a href="#"><i class="fas fa-wallet"></i> Wallet</a>
-            </li>
-            <li>
-              <a href="#"><i class="fas fa-chart-pie"></i> Budget</a>
-            </li>
-            <li>
-              <a href="#"><i class="fas fa-book"></i> Learn</a>
-            </li>
-            <li>
-              <a href="#"><i class="fas fa-cog"></i> Settings</a>
-            </li>
-          </ul>
-        </div>
-        <div class="navbar-profile">
-          <span class="notification-badge">
-            <i class="fas fa-bell"></i>
-            <span class="badge">2</span>
-          </span>
-          <div class="profile-pic">
-            <img src="https://via.placeholder.com/35" alt="Profile" />
+        <ul class="menu-list">
+          <li class="menu-item active">
+            <i class="fas fa-home"></i> <span>Home </span>
+          </li>
+          <li class="menu-item">
+            <i class="fas fa-chart-line"></i> <span>Budget </span>
+          </li>
+          <li class="menu-item">
+            <i class="fas fa-file-invoice"></i> <span>Wallet</span>
+          </li>
+          <li class="menu-item">
+            <i class="fas fa-users"></i> <span>About/Learn</span>
+          </li>
+          <li class="menu-item">
+            <i class="fas fa-trash"></i> <span>Settings</span>
+          </li>
+        </ul>
+        <div class="user-profile">
+          <div class="avatar">K.C.</div>
+          <div>
+            <div class="user-name">Kid Child</div>
+            <div class="user-status">Pro trial</div>
           </div>
         </div>
-      </nav>
+      </div>
+
+      <!-- Toggle button outside sidebar for desktop only -->
+      <button class="toggle-button" id="toggleSidebar">
+        <i class="fas fa-chevron-left toggle-icon"></i>
+      </button>
 
       <!-- Main Content -->
       <main class="main-content">
-        <!-- Balance Card -->
-        <section class="balance-card">
-          <div class="card-header">
-            <h2>Your Balance</h2>
-            <span class="card-icon"><i class="fas fa-eye"></i></span>
-          </div>
-          <div class="balance-amount">
-            <span class="currency">$</span>
-            <span class="amount">754.32</span>
-          </div>
-          <div class="balance-actions">
+        <!-- RENATE - HERO SECTION - START -->
+        <section class="hero-container">
+          <!-- CARD INFORMATION -->
+          <article class="hero-right">
+            <div class="card-header">
+              <p>Your Balance:</p>
+              <span class="card-icon"><i class="fas fa-eye"></i></span>
+            </div>
+            <div class="balance-amount">
+              <span class="currency">
+                <h1>$ Something</h1>
+              </span>
+            </div>
+
+            <div class="wave"></div>
+            <div class="wave"></div>
+          </article>
+
+          <!-- HERO BTNS -->
+          <article class="hero-left">
             <button class="action-btn add-money">
-              <i class="fas fa-plus"></i>
-              <span>Add</span>
-            </button>
-            <button class="action-btn pay">
-              <i class="fas fa-paper-plane"></i>
-              <span>Pay</span>
-            </button>
-            <button class="action-btn request">
               <i class="fas fa-hand-holding-usd"></i>
               <span>Request</span>
             </button>
-          </div>
+            <button class="action-btn pay">
+              <i class="fa-solid fa-arrow-right-arrow-left"></i>
+              <span>Transfer</span>
+            </button>
+            <button class="action-btn request">
+              <i class="fa-solid fa-piggy-bank"></i>
+              <span>Savings</span>
+            </button>
+          </article>
         </section>
+        <!-- RENATE - HERO SECTION - END -->
 
         <!-- Spending Categories -->
         <section class="spending-categories">
@@ -309,44 +317,47 @@
           <div class="task-list">
             <div class="task-card">
               <div class="checkbox-icon color">
-              <label><input type="checkbox" /> </label>
+              <i class="fa-solid fa-broom"></i>
             </div>
             <div class="task-info">
               <h3>Clean your room</h3>
             </div>
             <div class="task-amount ">
-              <p class="amount">kr 10</p>
+              <p class="amount">$10</p>
+              <label><input type="checkbox" /> </label>
             </div>
             </div>
-
 
             <div class="task-card">
-              <div class="checkbox-icon color">
-              <label><input type="checkbox" /> </label>
+              <div class="checkbox-icon color-icon-trash">
+              <i class="fa-solid fa-trash"></i>
             </div>
             <div class="task-info">
               <h3>Take out the trash</h3>
             </div>
             <div class="task-amount ">
-              <p class="amount  ">kr 15</p>
+              <p class="amount  ">$15</p>
+              <label><input type="checkbox" /> </label>
             </div>
             </div>
-
 
             <div class="task-card">
-              <div class="checkbox-icon color">
-              <label><input type="checkbox" /> </label>
+              <div class="checkbox-icon color-icon-dishes">
+              <i class="fa-solid fa-utensils"></i>
             </div>
             <div class="task-info">
               <h3>Do the dishes</h3>
             </div>
             <div class="task-amount ">
-              <p class="amount">kr 15</p>
+              <p class="amount">$15</p>
+              <label><input type="checkbox" /> </label>
             </div>
           </div>
         </section>
 
-        <!-- footer -->
+
+
+        <!-- Footer -->
 
         <footer class="footer">
           <div class="footer-container">
