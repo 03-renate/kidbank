@@ -745,6 +745,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // setupCounter(document.querySelector("#counter"));
 
+// Assign Task
 // Assign Tasks
 const taskCards = document.querySelectorAll(".task-card");
 taskCards.forEach((task) => {
