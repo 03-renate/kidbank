@@ -746,6 +746,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // setupCounter(document.querySelector("#counter"));
 
+// Assign Task
+// Assign Tasks
+const taskCards = document.querySelectorAll(".task-card");
+taskCards.forEach((task) => {
+  task.addEventListener("click", (event) => {
+    if (event.target.tagName === "INPUT") {
+      event.stopPropagation();
+    }
+    setTimeout(() => {
+      task.remove();
+    }, 1000);
+  });
+});
+
 // Footer
 
 function showMember(name, role, github) {
