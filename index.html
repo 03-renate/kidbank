@@ -86,10 +86,28 @@
               <i class="fas fa-hand-holding-usd"></i>
               <span>Request</span>
             </button>
-            <button class="action-btn pay">
+            <button class="action-btn pay" id= "startScan">
               <i class="fa-solid fa-arrow-right-arrow-left"></i>
-              <span>Transfer</span>
-            </button>
+              <span>Scan</span>
+            </button> 
+
+            <!-- Bar Code Scanner Modal -->
+          <div class="bla_bla">
+            <div class="modal-content">
+              <span class="close-modal">&times;</span>
+              <div class="modal-icon restricted">
+                <i class="fas fa-exclamation-triangle"></i>
+              </div>
+              <p class="bla">KidBank Barcode Scanner</p>
+              <div>
+                <video id="camera" width="300" height="200" autoplay></video>
+                <p class="bla">
+                  Scanned Code: <span id="barcodeResult">None</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        
             <button class="action-btn request">
               <i class="fa-solid fa-piggy-bank"></i>
               <span class="add-goal">Savings</span>
@@ -97,7 +115,7 @@
           </article>
         </section>
         <!-- RENATE - HERO SECTION - END -->
-
+ 
         <!-- Spending Categories -->
         <section class="spending-categories">
           <div class="section-header">

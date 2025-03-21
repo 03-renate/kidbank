@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KidBank</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/src/assets/barcode-scanner.css" />
+  </head>
+  <body>
+
+ <!-- Bar Code Scanner Modal -->
+ <div class="bla_bla">
+   <div class="modal-content">
+     <span class="close-modal">&times;</span>
+    <div class="modal-icon restricted">
+      <i class="fas fa-exclamation-triangle"></i>
+    </div>
+       <p class="bla">KidBank Barcode Scanner</p>
+    <div>
+      <video id="camera" width="300" height="200" autoplay></video>
+      <p class="bla">
+        Scanned Code: <span id="barcodeResult">None</span>
+      </p>
+    </div>
+     </div>
+  </div>
+
+    </div>
+    <script src="/src/js/barcodeScanner.js"></script>
+  </body>
+</html>

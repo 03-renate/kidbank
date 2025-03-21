@@ -309,6 +309,37 @@ body {
     transform: translateY(0);
   }
 }
+/* Barcode Modal  */
+
+/*.bla_bla {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+/*display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+.bla_bla {
+    display: none;
+}
+
+.modal-content {
+  display: block; /* Change from "none" */
+  background-color: white;
+  border-radius: 15px;
+  padding: 30px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+}
+
+
 
 /* HERO TABLET/PHONE */
 @media only screen and (max-width: 430px) {
