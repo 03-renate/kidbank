@@ -243,30 +243,19 @@ body {
 }
 
 .card-icon {
-  border: none;
-  border-radius: 50%;
-  background-color: transparent;
-  color: white;
   font-size: 1.2rem;
   cursor: pointer;
 }
 
 .balance-amount {
   display: flex;
-  justify-content: center;
-  text-align: center;
+  align-items: center;
 }
 
 .currency {
   font-size: 1.8rem;
   margin-right: 5px;
 }
-
-
-#blurred-currency {
-  transition: filter 0.3s ease;
-}
-
 
 /* HERO-LEFT BTNS */
 .hero-left {
