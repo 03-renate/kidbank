@@ -262,6 +262,12 @@ body {
   margin-right: 5px;
 }
 
+
+#blurred-currency {
+  transition: filter 0.3s ease;
+}
+
+
 /* HERO-LEFT BTNS */
 .hero-left {
   flex: 1;
@@ -282,7 +288,6 @@ body {
   color: #7082e6;
   background-color: #f9f9f9;
 }
-
 
 .action-btn:hover {
   background-color: rgba(255, 255, 255, 0.3);
