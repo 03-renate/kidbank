@@ -278,6 +278,7 @@ body {
   background-color: #f9f9f9;
 }
 
+
 .action-btn:hover {
   background-color: rgba(255, 255, 255, 0.3);
 }
@@ -356,6 +357,11 @@ body {
   align-items: center;
   justify-content: center;
   text-decoration: none;
+}
+span.add-goal {
+ background-color: #f8f9fa;
+ color: #5e72e4;
+
 }
 
 /* Spending Categories */
