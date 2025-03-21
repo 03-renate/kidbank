@@ -27,7 +27,7 @@ body {
   height: 100vh;
   background-color: #fff;
   border-right: 1px solid #e1e4e8;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   display: flex;
@@ -37,8 +37,46 @@ body {
   z-index: 100;
 }
 
-.sidebar .colapse {
-  width: 70px;
+.sidebar.collapsed {
+  width: 50px; /* Ensure the width shrinks */
+}
+
+/* Hide the tyext when it colapsed */
+.sidebar.collapsed .logo,
+.sidebar.collapsed .menu-item span,
+.sidebar.collapsed .user-profile {
+  display: none;
+}
+
+/* Make menu icons center-alligned when collapsed */
+.sidebar.collapse .menu-item {
+  justify-content: center;
+  display: none;
+  margin: 0;
+}
+
+.sidebar .menu-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+}
+
+/* Toggle button */
+.toggle-button {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  background-color: white;
+  border: 1px solid #e1e4e8;
+  border-radius: 4px;
+  padding: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sidebar.collapsed + .toggle-button .toggle-icon {
+  transform: rotate(180deg);
 }
 
 .sidebar-header {
@@ -133,6 +171,7 @@ body {
 }
 
 /* Icon animation for toggle*/
+
 .toggle-icon {
   transition: transform 0.3s ease;
 }
@@ -141,10 +180,21 @@ body {
   transform: rotate(180deg);
 }
 
+.sidebar.collapsed + .main-content {
+  margin-left: 60px;
+}
+
+.sidebar.collapsed ~ .main-content {
+  margin-left: 50px; /* Reduce gap when sidebar is collapsed */
+}
+
 /* Main Content */
 .main-content {
   padding: 20px;
+  margin-left: 260px; /* Default margin when the side bar is open */
+  transition: margin-left 0.3s ease;
 }
+
 
 /* RENATE - HERO SECTION - START */
 .hero-container {
@@ -771,60 +821,7 @@ body {
   border-left: 3px solid #ff396f;
 }
 
-/* Assign Task*/
-
-.task-list {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  margin-bottom: 25px;
-}
-.task-card {
-  background-color: white;
-  border-radius: 12px;
-  padding: 15px;
-  display: flex;
-  align-items: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s;
-}
-.task-card:hover {
-  transform: translateY(-3px);
-}
-
-.checkbox-icon {
-  width: 50px;
-  height: 50px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 15px;
-  font-size: 1.3rem;
-  color: white;
-  background-color: #5e72e4;
-}
-
-.checkbox-icon.color {
-  background-color: #1db954;
-}
-.task-info {
-  flex: 1;
-}
-.task-amount {
-  text-align: right;
-}
-.amount {
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: bl;
-}
-.color-icon-trash {
-  background-color: rgb(128, 128, 128);
-}
-.color-icon-dishes {
-  background-color: #5e72e4;
-}
+/* Footer */
 
 /* footer */
 
@@ -924,58 +921,4 @@ body {
   right: 15px;
   font-size: 24px;
   cursor: pointer;
-}
-/* AssignTask*/
-
-.task-list {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  margin-bottom: 25px;
-}
-.task-card {
-  background-color: white;
-  border-radius: 12px;
-  padding: 15px;
-  display: flex;
-  align-items: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s;
-}
-.task-card:hover {
-  transform: translateY(-3px);
-}
-
-.checkbox-icon {
-  width: 50px;
-  height: 50px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 15px;
-  font-size: 1.3rem;
-  color: white;
-  background-color: #5e72e4;
-}
-
-.checkbox-icon.color {
-  background-color: #1db954;
-}
-.task-info {
-  flex: 1;
-}
-.task-amount {
-  text-align: right;
-}
-.amount {
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: bl;
-}
-.color-icon-trash {
-  background-color: rgb(128, 128, 128);
-}
-.color-icon-dishes {
-  background-color: #5e72e4;
 }

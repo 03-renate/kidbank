@@ -17,9 +17,12 @@ if (window.innerWidth > 768) {
 }
 
 toggleButton.addEventListener("click", () => {
-  // Only toggle on desktop
   if (window.innerWidth > 768) {
     sidebar.classList.toggle("collapsed");
+
+    // Rotate the icon
+    const icon = toggleButton.querySelector(".toggle-icon");
+    icon.classList.toggle("rotated");
   }
 });
 
@@ -744,20 +747,6 @@ document.addEventListener("DOMContentLoaded", () => {
 // `;
 
 // setupCounter(document.querySelector("#counter"));
-
-// Assign Tasks
-
-const taskCards = document.querySelectorAll(".task-card");
-taskCards.forEach((task) => {
-  task.addEventListener("click", (event) => {
-    if (event.target.tagName === "INPUT") {
-      event.stopPropagation();
-    }
-    setTimeout(() => {
-      task.remove();
-    }, 1000);
-  });
-});
 
 // Footer
 
