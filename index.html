@@ -15,47 +15,50 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <script src="/src/js/main.js" defer></script>
   </head>
   <body>
     <div class="app-container">
       <!-- Navigation -->
-      <nav class="navbar">
-        <div class="navbar-brand">
-          <img src="https://via.placeholder.com/40" alt="Logo" class="logo" />
-          <h1>KidBank</h1>
+
+      <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+          <span class="logo">Pointsale</span>
         </div>
-        <div class="navbar-menu">
-          <button class="menu-toggle" id="menuToggle">
-            <i class="fas fa-bars"></i>
-          </button>
-          <ul class="nav-links" id="navLinks">
-            <li>
-              <a href="#" class="active"><i class="fas fa-home"></i> Home</a>
-            </li>
-            <li>
-              <a href="#"><i class="fas fa-wallet"></i> Wallet</a>
-            </li>
-            <li>
-              <a href="#"><i class="fas fa-chart-pie"></i> Budget</a>
-            </li>
-            <li>
-              <a href="#"><i class="fas fa-book"></i> Learn</a>
-            </li>
-            <li>
-              <a href="#"><i class="fas fa-cog"></i> Settings</a>
-            </li>
-          </ul>
-        </div>
-        <div class="navbar-profile">
-          <span class="notification-badge">
-            <i class="fas fa-bell"></i>
-            <span class="badge">2</span>
-          </span>
-          <div class="profile-pic">
-            <img src="https://via.placeholder.com/35" alt="Profile" />
+        <ul class="menu-list">
+          <li class="menu-item active">
+            <i class="fas fa-home"></i> <span class="menu-text">Home</span>
+          </li>
+          <li class="menu-item">
+            <i class="fas fa-chart-line"></i>
+            <span class="menu-text">Budget</span>
+          </li>
+          <li class="menu-item">
+            <i class="fas fa-file-invoice"></i>
+            <span class="menu-text">Wallet</span>
+          </li>
+          <li class="menu-item">
+            <i class="fas fa-users"></i>
+            <span class="menu-text">About/Learn</span>
+          </li>
+          <li class="menu-item">
+            <i class="fas fa-trash"></i> <span class="menu-text">Settings</span>
+          </li>
+        </ul>
+
+        <div class="user-profile">
+          <div class="avatar">K.C.</div>
+          <div>
+            <div class="user-name">Kid Child</div>
+            <div class="user-status">Pro trial</div>
           </div>
         </div>
-      </nav>
+      </div>
+
+      <!-- Toggle button outside sidebar for desktop only -->
+      <button class="toggle-button" id="toggleSidebar">
+        <i class="fas fa-chevron-left toggle-icon"></i>
+      </button>
 
       <!-- Main Content -->
       <main class="main-content">
@@ -76,8 +79,7 @@
                 <h1 id="balance">$0.00</h1>
               </div>
             </div>
-          </article>          
-          
+
           <!-- HERO BTNS -->
           <article class="hero-left">
             <button class="action-btn add-money" aria-label="Request Money">
@@ -95,7 +97,6 @@
           </article>          
         </section>
         <!-- RENATE - HERO SECTION - END -->
-
 
         <!-- Spending Categories -->
         <section class="spending-categories">
@@ -310,6 +311,58 @@
             </div>
           </div>
         </section>
+
+        <!-- Footer -->
+
+        <footer class="footer">
+          <div class="footer-container">
+            <div class="logo">KidBank</div>
+            <h2>Kid-Bank</h2>
+
+            <div class="social-links">
+              <a href="https://twitter.com/" target="_blank"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="https://linkedin.com/" target="_blank"
+                ><i class="fab fa-linkedin"></i
+              ></a>
+              <a href="https://github.com/03-renate/kidbank" target="_blank"
+                ><i class="fab fa-github"></i
+              ></a>
+            </div>
+
+            <div class="members">
+              <h4>Group Members</h4>
+              <span
+                onclick="showMember('Renate', 'Frontend Developer', 'https://github.com/03-renate')"
+                >Renate</span
+              >
+              <span
+                onclick="showMember('Tubha', 'Frontend Developer', 'https://github.com/Tubhaahmad')"
+                >Tubha</span
+              >
+              <span
+                onclick="showMember('Sergiu', 'Frontend Developer', 'https://github.com/sergiu-sa')"
+                >Sergiu</span
+              >
+              <span
+                onclick="showMember('Hammad', 'Frontend Developer', 'https://github.com/Hammadniazi')"
+                >Hammad</span
+              >
+            </div>
+          </div>
+        </footer>
+
+        <!-- Pop-up -->
+
+        <div id="pop-up-member" class="pop-up">
+          <div class="pop-up-content">
+            <span class="close-btn" id="close-btn">&times;</span>
+            <h2 id="memberName"></h2>
+            <p id="memberRole"></p>
+            <a id="memberGithub" href="#" target="_blank">Visit GitHub</a>
+          </div>
+        </div>
       </main>
 
       <!-- Bottom Navigation for Mobile -->
@@ -338,8 +391,10 @@
       </div>
     </div>
 
+
     <script src="/src/js/main.js"></script>
     <script src="/src/js/eyeBtn.js"></script>
     <script src="/src/js/api.js"></script>
+
   </body>
 </html>
