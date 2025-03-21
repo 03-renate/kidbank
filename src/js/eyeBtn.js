@@ -1,3 +1,21 @@
+// Simulated Bank Account
+let bankAccount = {
+  name: "John Doe",
+  balance: 5000, // Initial balance
+  currency: "USD",
+  currencySymbol: "$"
+};
+
+
+// Function to display the balance
+function displayBalance() {
+  const balanceElement = document.getElementById("re_balance");
+  balanceElement.textContent = `${bankAccount.currencySymbol} ${bankAccount.balance.toFixed(2)}`;
+}
+
+
+
+
 /*This function allow the user to blur out the total sum. 
 When clicking the button, it will toggle the blur effect on the #blurred-currency div.
 The icon inside the button will switch between fa-eye and fa-eye-slash, 
