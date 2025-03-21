@@ -196,6 +196,39 @@ body {
 }
 
 
+/*RENATE - PROFILE - START*/
+.profile-container{
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 0.5rem;
+}
+
+.profile-img{
+  width: 35px;
+  height: 35px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.profile-img i{
+  color: #5e72e4;
+}
+
+#profile-name{
+  background: -webkit-linear-gradient(30deg, #9d4edd, #ff8500);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: capitalize;
+}
+/*RENATE - PROFILE - END*/
+
+
 /* RENATE - HERO SECTION - START */
 .hero-container {
   display: flex;
@@ -216,7 +249,7 @@ body {
   color: white;
   background: linear-gradient();
   animation: bg 12s ease infinite;
-  box-shadow: 0 10px 20px rgba(94, 114, 228, 0.2);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 
   background: linear-gradient(-120deg, #ff8500, #9d4edd, #0a0908);
   background-size: 200% 200%;
@@ -286,7 +319,8 @@ body {
   cursor: pointer;
   background-clip: none;
   color: #7082e6;
-  background-color: #f9f9f9;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
 .action-btn:hover {

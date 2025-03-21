@@ -1,10 +1,19 @@
 // Simulated Bank Account
 let bankAccount = {
-  name: "John Doe",
+  name: "Jane Doe",
   balance: 5000, // Initial balance
   currency: "USD",
   currencySymbol: "$"
 };
+
+// Function to display the balance
+function displayUsername() {
+  const nameElement = document.getElementById("username");
+  nameElement.textContent = `${bankAccount.name}`;
+}
+
+// Initialize the username display
+document.addEventListener("DOMContentLoaded", displayUsername);
 
 
 // Function to display the balance
@@ -15,6 +24,8 @@ function displayBalance() {
 
 // Initialize the balance display
 document.addEventListener("DOMContentLoaded", displayBalance);
+
+
 // Function to add amount to the balance
 function addAmount(amount) {
 if (amount > 0) {
