@@ -3,7 +3,6 @@ When clicking the button, it will toggle the blur effect on the #blurred-currenc
 The icon inside the button will switch between fa-eye and fa-eye-slash, 
 indicating the visibility state.*/
 
-
 let currencyDiv = document.getElementById("blurred-currency");
 let isBlurred = false;
 let icon = document.querySelector(".card-icon i");
