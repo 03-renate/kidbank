@@ -8,6 +8,7 @@ const restrictedItem = document.getElementById("restrictedItem");
 const restrictionReason = document.getElementById("restrictionReason");
 const sidebar = document.getElementById("sidebar");
 const toggleButton = document.getElementById("toggleSidebar");
+const taskCards = document.querySelectorAll(".task-card");
 
 //Navigation
 
@@ -767,3 +768,26 @@ window.onclick = function (event) {
     document.getElementById("pop-up-member").style.display = "none";
   }
 };
+
+// Assign Tasks
+
+taskCards.forEach((task) => {
+  task.addEventListener("click", (event) => {
+    if (event.target.tagName === "INPUT") {
+      event.stopPropagation();
+    }
+    const balanceAmountElement = document.getElementById("re_balance");
+    debugger;
+    let currentBalance = parseFloat(
+      balanceAmountElement.textContent.replace("$", "")
+    );
+    const amountText = task.querySelector(".amount").textContent;
+    const taskAmount = parseFloat(amountText.replace("$", ""));
+    currentBalance += taskAmount;
+    balanceAmountElement.textContent = `$${currentBalance.toFixed(2)}`;
+
+    setTimeout(() => {
+      task.remove();
+    }, 1000);
+  });
+});
