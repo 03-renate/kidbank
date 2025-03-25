@@ -7,7 +7,7 @@
 
 body {
   font-family: "Poppins", sans-serif;
-  background-color: #DCE1F9;
+  background-color: #dce1f9;
   color: #333;
   line-height: 1.6;
 }
@@ -195,37 +195,35 @@ body {
   transition: margin-left 0.3s ease;
 }
 
-
 /*RENATE - PROFILE - START*/
-.profile-container{
+.profile-container {
   display: flex;
   align-items: center;
   justify-content: end;
   gap: 0.5rem;
 }
 
-.profile-container .profile-img{
+.profile-container .profile-img {
   width: 35px;
   height: 35px;
   padding: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #F9F9F9;
+  background-color: #f9f9f9;
   border-radius: 50%;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
-.profile-container .profile-img i{
+.profile-container .profile-img i {
   color: #7082e6;
 }
 
-.profile-container #profile-name{
+.profile-container #profile-name {
   color: #313589;
   text-transform: capitalize;
 }
 /*RENATE - PROFILE - END*/
-
 
 /* RENATE - HERO SECTION - START */
 .hero-container {
@@ -244,7 +242,7 @@ body {
   width: auto;
   border-radius: 15px;
   padding: 25px;
-  color: #F9F9F9;
+  color: #f9f9f9;
   background: linear-gradient();
   animation: bg 12s ease infinite;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
@@ -277,7 +275,7 @@ body {
   border: none;
   border-radius: 50%;
   background-color: transparent;
-  color: #F9F9F9;
+  color: #f9f9f9;
   font-size: 1.2rem;
   cursor: pointer;
 }
@@ -293,11 +291,9 @@ body {
   margin-right: 5px;
 }
 
-
 #blurred-currency {
   transition: filter 0.3s ease;
 }
-
 
 /* HERO-LEFT BTNS */
 .hero-left {
@@ -317,12 +313,12 @@ body {
   cursor: pointer;
   background-clip: none;
   color: #7082e6;
-  background-color: #F9F9F9;
+  background-color: #f9f9f9;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
 .action-btn:hover {
-  background-color: #EBEBEB;
+  background-color: #ebebeb;
 }
 
 .action-btn i {
@@ -401,9 +397,8 @@ body {
   text-decoration: none;
 }
 span.add-goal {
- background-color: #f8f9fa;
- color: #5e72e4;
-
+  background-color: #f8f9fa;
+  color: #5e72e4;
 }
 
 /* Spending Categories */
@@ -869,17 +864,15 @@ span.add-goal {
   border-left: 3px solid #ff396f;
 }
 
-/* Footer */
-
 /* footer */
 
 .footer-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: solid 1px #7082E6;
+  border: solid 1px #7082e6;
   border-radius: 15px;
-  color: #F9F9F9;
+  color: #f9f9f9;
   padding: 30px 20px;
 }
 
@@ -891,7 +884,6 @@ span.add-goal {
   height: auto;
   width: 250px;
 }
-
 
 /*.social-links a {
   margin: 0 10px;
@@ -913,7 +905,7 @@ span.add-goal {
   gap: 1rem;
 }
 
-.members h4{
+.members h4 {
   color: #313589;
 }
 
@@ -924,13 +916,12 @@ span.add-goal {
   text-align: center;
   cursor: pointer;
   border-radius: 5px;
-  color: #7082E6;
-  background-color: #F9F9F9;
+  color: #7082e6;
+  background-color: #f9f9f9;
 }
 
-
 .members span:hover {
-  background-color: #FF8500;
+  background-color: #ff8500;
   color: #313589;
 }
 
@@ -983,4 +974,63 @@ span.add-goal {
   right: 15px;
   font-size: 24px;
   cursor: pointer;
+}
+
+/* AssignTask*/
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+.task-card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s;
+}
+.task-card:hover {
+  transform: translateY(-3px);
+}
+
+.checkbox-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  font-size: 1.3rem;
+  color: white;
+  background-color: #5e72e4;
+}
+
+.checkbox-icon.color {
+  background-color: #1db954;
+}
+.task-info {
+  flex: 1;
+}
+.task-info p {
+  font-size: 0.85rem;
+  color: #999;
+}
+.task-amount {
+  text-align: right;
+}
+.amount {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: bl;
+}
+.color-icon-trash {
+  background-color: rgb(128, 128, 128);
+}
+.color-icon-dishes {
+  background-color: #5e72e4;
 }
