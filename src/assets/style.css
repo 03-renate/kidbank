@@ -305,6 +305,10 @@ body {
   flex: 1;
 }
 
+.scann_font {
+  font-size: 13px;
+}
+
 .action-btn {
   height: auto;
   width: 50%;
