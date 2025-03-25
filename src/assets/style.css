@@ -156,6 +156,11 @@ body {
   color: #4a5568;
   margin-right: 12px;
 }
+.avatar-logo,
+.top-logo {
+  width: 65px;
+  height: 55px;
+}
 
 .toggle-button {
   background-color: white;
@@ -404,7 +409,6 @@ span.add-goal {
   background-color: #f8f9fa;
   color: #5e72e4;
 }*/
-
 
 /* Spending Categories */
 .category-list {
