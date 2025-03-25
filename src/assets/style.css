@@ -385,7 +385,7 @@ body {
   font-weight: 500;
 }
 
-.add-goal {
+/*.add-goal {
   background-color: #5e72e4;
   color: white;
   width: 30px;
@@ -397,9 +397,14 @@ body {
   text-decoration: none;
 }
 span.add-goal {
+ background-color: #f8f9fa;
+ color: #5e72e4;
+}
+=======
   background-color: #f8f9fa;
   color: #5e72e4;
-}
+}*/
+
 
 /* Spending Categories */
 .category-list {
