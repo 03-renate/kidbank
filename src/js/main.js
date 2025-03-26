@@ -9,6 +9,9 @@ const restrictionReason = document.getElementById("restrictionReason");
 const sidebar = document.getElementById("sidebar");
 const toggleButton = document.getElementById("toggleSidebar");
 
+const taskCards = document.querySelectorAll(".task-card");
+
+
 //Navigation
 
 // Set initial state - expanded on desktop
@@ -17,9 +20,12 @@ if (window.innerWidth > 768) {
 }
 
 toggleButton.addEventListener("click", () => {
-  // Only toggle on desktop
   if (window.innerWidth > 768) {
     sidebar.classList.toggle("collapsed");
+
+    // Rotate the icon
+    const icon = toggleButton.querySelector(".toggle-icon");
+    icon.classList.toggle("rotated");
   }
 });
 
@@ -764,3 +770,26 @@ window.onclick = function (event) {
     document.getElementById("pop-up-member").style.display = "none";
   }
 };
+
+// Assign Tasks
+
+taskCards.forEach((task) => {
+  task.addEventListener("click", (event) => {
+    if (event.target.tagName === "INPUT") {
+      event.stopPropagation();
+    }
+    const balanceAmountElement = document.getElementById("re_balance");
+    debugger;
+    let currentBalance = parseFloat(
+      balanceAmountElement.textContent.replace("$", "")
+    );
+    const amountText = task.querySelector(".amount").textContent;
+    const taskAmount = parseFloat(amountText.replace("$", ""));
+    currentBalance += taskAmount;
+    balanceAmountElement.textContent = `$${currentBalance.toFixed(2)}`;
+
+    setTimeout(() => {
+      task.remove();
+    }, 1000);
+  });
+});

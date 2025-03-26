@@ -16,6 +16,8 @@
       rel="stylesheet"
     />
     <script src="/src/js/main.js" defer></script>
+    <script src="/src/js/eyeBtn.js" defer></script>
+
   </head>
   <body>
     <div class="app-container">
@@ -27,25 +29,30 @@
         </div>
         <ul class="menu-list">
           <li class="menu-item active">
-            <i class="fas fa-home"></i> <span>Home </span>
+            <i class="fas fa-home"></i> <span class="menu-text">Home</span>
           </li>
           <li class="menu-item">
-            <i class="fas fa-chart-line"></i> <span>Budget </span>
+            <i class="fas fa-chart-line"></i>
+            <span class="menu-text">Budget</span>
           </li>
           <li class="menu-item">
-            <i class="fas fa-file-invoice"></i> <span>Wallet</span>
+            <i class="fas fa-file-invoice"></i>
+            <span class="menu-text">Wallet</span>
           </li>
           <li class="menu-item">
-            <i class="fas fa-users"></i> <span>About/Learn</span>
+            <i class="fas fa-users"></i>
+            <span class="menu-text">About/Learn</span>
           </li>
           <li class="menu-item">
-            <i class="fas fa-trash"></i> <span>Settings</span>
+            <i class="fas fa-trash"></i> <span class="menu-text">Settings</span>
           </li>
         </ul>
+
         <div class="user-profile">
-          <div class="avatar">K.C.</div>
+          <!-- <div class="avatar">K.C.</div> -->
+          <div><img src="./img/logo.png" class="avatar-logo"></div>
           <div>
-            <div class="user-name">Kid Child</div>
+            <div class="user-name">KidBank</div>
             <div class="user-status">Pro trial</div>
           </div>
         </div>
@@ -58,37 +65,51 @@
 
       <!-- Main Content -->
       <main class="main-content">
+        <!-- RENATE - PROFILE - START -->
+         <section class="profile-container">
+              <div class="profile-img">
+                <i class="fa-solid fa-user"></i>
+              </div>
+              <div id="profile-name">
+                <p id="username">username</p>
+              </div>
+         </section>
+
         <!-- RENATE - HERO SECTION - START -->
         <section class="hero-container">
+          
           <!-- CARD INFORMATION -->
           <article class="hero-right">
             <div class="card-header">
               <p>Your Balance:</p>
-              <span class="card-icon"><i class="fas fa-eye"></i></span>
+              <button onclick="hideShow()" class="card-icon">
+                <i class="fas fa-eye"></i>
+              </button>
             </div>
+            
             <div class="balance-amount">
-              <span class="currency">
-                <h1>$ Something</h1>
-              </span>
+              <div id="blurred-currency" class="currency">
+                <h1 id="re_balance">$0.00</h1>
+              </div>
             </div>
-
-            <div class="wave"></div>
-            <div class="wave"></div>
           </article>
 
           <!-- HERO BTNS -->
           <article class="hero-left">
-            <button class="action-btn add-money">
+            <button class="action-btn add-money" aria-label="Request Money">
               <i class="fas fa-hand-holding-usd"></i>
               <span>Request</span>
             </button>
-            <button class="action-btn pay">
-              <i class="fa-solid fa-arrow-right-arrow-left"></i>
-              <span>Transfer</span>
-            </button>
-            <button class="action-btn request">
-              <i class="fa-solid fa-piggy-bank"></i>
-              <span>Savings</span>
+
+            <a href="/src/pages/barcode_scanner.html" class="action-btn pay" aria-label="Transfer Money">
+             <i class="fas fa-arrow-right-arrow-left"></i>
+             <span class="scann_font">Scan</span>
+            </a>
+
+
+            <button class="action-btn request" aria-label="Savings">
+              <i class="fas fa-piggy-bank"></i>
+              <span class="add-goal">Savings</span>
             </button>
           </article>
         </section>
@@ -357,14 +378,65 @@
           </div>
         </section>
 
+          <!-- Assign Tasks -->
+        <section>
+          <div class="section-header">
+            <h2>Your Tasks</h2>
+            <a href="#" class="view-all">View All</a>
+          </div>
+          <div class="task-list">
+            <div class="task-card">
+              <div class="checkbox-icon color">
+              <i class="fa-solid fa-broom"></i>
+            </div>
+            <div class="task-info">
+              <h3>Clean your room</h3>
+              <p>Tidy up, dust and organise things</p>
+            </div>
+            <div class="task-amount ">
+              <p class="amount">$ 10</p>
+              <label><input type="checkbox" /> </label>
+            </div>
+            </div>
+
+            <div class="task-card">
+              <div class="checkbox-icon color-icon-trash">
+              <i class="fa-solid fa-trash"></i>
+            </div>
+            <div class="task-info">
+              <h3>Take out the trash</h3>
+              <p>Collect bag and dispose</p>
+            </div>
+            <div class="task-amount ">
+              <p class="amount  ">$ 15</p>
+              <label><input type="checkbox" /> </label>
+            </div>
+            </div>
+
+            <div class="task-card">
+              <div class="checkbox-icon color-icon-dishes">
+              <i class="fa-solid fa-utensils"></i>
+            </div>
+            <div class="task-info">
+              <h3>Do the dishes</h3>
+              <p>Wash, dry and put away</p>
+            </div>
+            <div class="task-amount ">
+              <p class="amount">$ 15</p>
+              <label><input type="checkbox" /> </label>
+            </div>
+          </div>
+        </section>
+
         <!-- Footer -->
 
         <footer class="footer">
           <div class="footer-container">
-            <div class="logo">KidBank</div>
-            <h2>Kid-Bank</h2>
+            <div class="logo">
+              <img src="/img/logo.png" alt="logo-img">
+            </div>
 
-            <div class="social-links">
+            <!--<div class="social-links">
               <a href="https://twitter.com/" target="_blank"
                 ><i class="fab fa-twitter"></i
               ></a>
@@ -374,26 +446,37 @@
               <a href="https://github.com/03-renate/kidbank" target="_blank"
                 ><i class="fab fa-github"></i
               ></a>
-            </div>
+            </div>-->
 
+      
             <div class="members">
-              <h4>Group Members</h4>
-              <span
-                onclick="showMember('Renate', 'Frontend Developer', 'https://github.com/03-renate')"
-                >Renate</span
-              >
-              <span
-                onclick="showMember('Tubha', 'Frontend Developer', 'https://github.com/Tubhaahmad')"
-                >Tubha</span
-              >
-              <span
-                onclick="showMember('Sergiu', 'Frontend Developer', 'https://github.com/sergiu-sa')"
-                >Sergiu</span
-              >
-              <span
-                onclick="showMember('Hammad', 'Frontend Developer', 'https://github.com/Hammadniazi')"
-                >Hammad</span
-              >
+              <div class="members-title">
+                <h4>Meet our team!</h4>
+                <h4>Check out our GitHub profiles!</h4>
+              </div>
+
+              <div class="members-links">
+                <span
+                  onclick="showMember('Renate', 'Frontend Developer', 'https://github.com/03-renate')"
+                  ><i class="fab fa-github"></i> 
+                  Renate
+                </span>
+                <span
+                  onclick="showMember('Tubha', 'Frontend Developer', 'https://github.com/Tubhaahmad')"
+                  ><i class="fab fa-github"></i>Tubha
+                </span>
+                <span
+                  onclick="showMember('Sergiu', 'Frontend Developer', 'https://github.com/sergiu-sa')"
+                  ><i class="fab fa-github"></i>
+                  Sergiu
+                </span>
+                <span
+                  onclick="showMember('Hammad', 'Frontend Developer', 'https://github.com/Hammadniazi')"
+                  ><i class="fab fa-github"></i>
+                  Hammad
+                </span>
+              </div>
+              
             </div>
           </div>
         </footer>
