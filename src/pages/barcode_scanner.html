@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scan Products - KidBank</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    />
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f6fa;
+      }
+
+      .scanner-container {
+        max-width: 600px;
+        margin: auto;
+        padding: 20px;
+        text-align: center;
+      }
+
+      video {
+        width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .product-list {
+        margin-top: 20px;
+        text-align: left;
+      }
+
+      .product-item {
+        background: #fff;
+        margin-bottom: 10px;
+        padding: 10px 15px;
+        border-radius: 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      }
+
+      .product-item.restricted {
+        background-color: #ffe6e6;
+        color: #c0392b;
+      }
+
+      .product-item.allowed {
+        background-color: #e6fff1;
+        color: #27ae60;
+      }
+
+      #finish-btn {
+        margin-top: 20px;
+        padding: 12px 20px;
+        font-size: 1rem;
+        background-color: #5e72e4;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="scanner-container">
+      <h2>Scan Your Products</h2>
+      <video id="camera" autoplay muted playsinline></video>
+      <div class="product-list" id="productList"></div>
+      <button id="finish-btn">Finish & Generate QR</button>
+    </div>
+
+    <script>
+      const video = document.getElementById("camera");
+      const productList = document.getElementById("productList");
+      const finishBtn = document.getElementById("finish-btn");
+
+      const restrictedKeywords = [
+        "cigarette",
+        "alcohol",
+        "vodka",
+        "energy drink",
+        "beer",
+        "whiskey",
+      ];
+      const scannedProducts = new Map();
+
+      async function startCameraAndScan() {
+        try {
+          const stream = await navigator.mediaDevices.getUserMedia({
+            video: { facingMode: "environment" },
+            audio: false,
+          });
+          video.srcObject = stream;
+
+          const barcodeDetector = new BarcodeDetector({
+            formats: ["ean_13", "code_128"],
+          });
+
+          setInterval(async () => {
+            try {
+              const barcodes = await barcodeDetector.detect(video);
+              if (barcodes.length > 0) {
+                const code = barcodes[0].rawValue;
+                if (!scannedProducts.has(code)) {
+                  // Fetch product info from your proxy server
+                  const response = await fetch(
+                    `http://localhost:4000/barcode/${code}`
+                  );
+                  if (!response.ok) throw new Error("Product not found");
+                  const product = await response.json();
+
+                  const productName =
+                    product.product_name || `Unknown Product (${code})`;
+                  const isRestricted = restrictedKeywords.some((keyword) =>
+                    productName.toLowerCase().includes(keyword)
+                  );
+
+                  scannedProducts.set(code, {
+                    name: productName,
+                    restricted: isRestricted,
+                  });
+                  updateProductList();
+                }
+              }
+            } catch (err) {
+              console.warn("Detection error:", err.message);
+            }
+          }, 1000);
+        } catch (err) {
+          console.error("Camera access denied or unavailable:", err);
+          alert("Camera access is required to use the barcode scanner.");
+        }
+      }
+
+      function updateProductList() {
+        productList.innerHTML = "";
+        scannedProducts.forEach((data, code) => {
+          const item = document.createElement("div");
+          item.className = `product-item ${
+            data.restricted ? "restricted" : "allowed"
+          }`;
+          item.innerHTML = `
+            <span>${data.name}</span>
+            <strong>${data.restricted ? "❌ Restricted" : "✅ Allowed"}</strong>
+          `;
+          productList.appendChild(item);
+        });
+      }
+
+      finishBtn.addEventListener("click", () => {
+        const allowedProducts = Array.from(scannedProducts.values()).filter(
+          (p) => !p.restricted
+        );
+        localStorage.setItem(
+          "allowedProducts",
+          JSON.stringify(allowedProducts)
+        );
+        window.location.href = "checkout.html";
+      });
+
+      document.addEventListener("DOMContentLoaded", startCameraAndScan);
+    </script>
+  </body>
+</html>
