@@ -8,7 +8,9 @@ const restrictedItem = document.getElementById("restrictedItem");
 const restrictionReason = document.getElementById("restrictionReason");
 const sidebar = document.getElementById("sidebar");
 const toggleButton = document.getElementById("toggleSidebar");
+
 const taskCards = document.querySelectorAll(".task-card");
+
 
 //Navigation
 

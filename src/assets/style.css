@@ -8,9 +8,13 @@
 body {
   font-family: "Poppins", sans-serif;
 
+  background-color: #dce1f9;
+
+
   background-color: #e8f2fd;
 
   background-color: #dce1f9;
+
 
   color: #333;
   line-height: 1.6;
@@ -660,7 +664,7 @@ h4 {
   font-size: 1.3rem;
 }
 
-.charts {
+.pie-charts {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -723,8 +727,69 @@ h4 {
 }
 
 .back {
-  background: #e74c3c;
+  background: #ffffff;
   transform: rotateY(180deg);
+}
+
+/*TUBHA - MONTHLY SPENDING CARD */
+.chart-wrapper {
+  display: flex;
+  justify-content: center;
+  padding-top: 3rem;
+  position: absolute;
+  width: 100%;
+}
+
+.monthly-spending-title {
+  color: black;
+  font-family: "Poppins", "sans-serif";
+  font-weight: 800;
+  font-size: 1.2rem;
+  padding-bottom: 17.8rem;
+}
+.y-axis {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 200px;
+  padding-right: 10px;
+  padding-top: 1.9rem;
+  font-size: 14px;
+  text-align: right;
+  color: black;
+  gap: 1.5rem;
+}
+
+.chart-container {
+  max-width: 400px;
+  height: 240px;
+  display: flex;
+  align-items: flex-end;
+  border-left: 2px solid black;
+  border-bottom: 2px solid black;
+  padding: 10px;
+  padding-top: 3rem;
+}
+.bar {
+  width: 100px;
+  margin: 0 15px;
+  background-color: #deacff;
+  text-align: center;
+  color: white;
+  font-size: 14px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.months {
+  display: flex;
+  gap: 4rem;
+  width: 100%;
+  margin-top: 10px;
+  color: black;
+  font-size: small;
+  padding-left: 1.7rem;
+  padding-left: 3.5rem;
 }
 
 /* Restricted Modal */
