@@ -9,7 +9,6 @@ const restrictionReason = document.getElementById("restrictionReason");
 const sidebar = document.getElementById("sidebar");
 const toggleButton = document.getElementById("toggleSidebar");
 
-
 //Navigation
 
 // Set initial state - expanded on desktop
