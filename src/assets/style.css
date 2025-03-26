@@ -13,8 +13,6 @@ body {
 }
 
 .app-container {
-  max-width: 1200px;
-  margin: 0 auto;
   position: relative;
   min-height: 100vh;
   padding-bottom: 70px; /* Space for bottom nav on mobile */
@@ -47,6 +45,8 @@ body {
 .sidebar.collapsed .user-profile {
   display: none;
 }
+
+
 
 /* Make menu icons center-alligned when collapsed */
 .sidebar.collapse .menu-item {
@@ -193,12 +193,16 @@ body {
   margin-left: 50px; /* Reduce gap when sidebar is collapsed */
 }
 
+
+
 /* Main Content */
 .main-content {
   padding: 20px;
   margin-left: 260px; /* Default margin when the side bar is open */
   transition: margin-left 0.3s ease;
 }
+
+
 
 /*RENATE - PROFILE - START*/
 .profile-container {
@@ -1052,4 +1056,11 @@ span.add-goal {
 }
 .color-icon-dishes {
   background-color: #5e72e4;
+}
+
+
+@media (max-width: 767px) {
+  .main-content {
+    margin-left: 0;
+  }
 }
