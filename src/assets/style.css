@@ -922,7 +922,7 @@ h4 {
   transform: translateY(-3px);
 }
 
-/* Saving Goals */
+/* Saving Goals 
 .goals-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -964,7 +964,7 @@ h4 {
 
 .of-target {
   color: #999;
-}
+}*/
 
 /* Bottom Navigation for Mobile */
 .bottom-nav {
