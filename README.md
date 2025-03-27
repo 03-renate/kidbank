@@ -81,7 +81,7 @@ This project is built with HTML, CSS, JavaScript, to create a responsive and mob
 1. Clone the repository
 
 ```
-	git clone https://github.com/03-renate/kidbank.git
+  git clone https://github.com/03-renate/kidbank.git
 cd kidbank
 ```
 
