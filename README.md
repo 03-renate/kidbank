@@ -1,9 +1,5 @@
 # KidBank - Teen Financial Tool 💰
 
-## Resources
-
-- [Design](https://www.figma.com/design/YkFgB3cGEkEr7rMvtC3wWG/Agency-1---CA?node-id=0-1&t=mGzPBWFzFWYLwIAe-1)
-
 ## Project Overview
 
 The **BankKid** is a web-based financial management tool designed for teens aged 14–18. It helps them track their finances while enforcing age-appropriate restrictions on purchases (e.g., no alcohol, cigarettes, energy drinks, or explicit content). Key features include a balance tracker, transaction history, and a purchase system with built-in safeguards.
@@ -23,9 +19,9 @@ This project is built with HTML, CSS, JavaScript, to create a responsive and mob
 
 - **Project Management:** GitHub Issues
 - **Contribution Process:**
-  - **Plan and research**
-  - **Create and assign GitHub Issues**
-  - **Implements features collaboratively**
+- **Plan and research**
+- **Create and assign GitHub Issues**
+- **Implements features collaboratively**
 
 ## 📂 Project Structure
 
@@ -59,29 +55,125 @@ This project is built with HTML, CSS, JavaScript, to create a responsive and mob
 - **User Dashboard:** View your balance and recent transactions.
 - **Transaction System:** Add funds and make purchases.
 - **Restricted Purchases:** (Planned) Prevent users from buying restricted products.
+- **Barcode Scanner**
+- **Product display with Request/Scann/Saving**
+- **Product details lookup via barcode**
+- **Purchase permission/restriction logic**
 - **Responsive Design:** Fully responsive layout that works on mobile, tablet, and desktop devices using Bootstrap.
 
 ## 🛠Tech Stack
 
-- **Frontend:** HTML, CSS, JavaScript, Bootstrap
+- **Frontend:** HTML, CSS, Vanilla JavaScript(Vite)
 - **Version Control:** GitHub
 - **Project Management:** GitHub Issues
+- Node.js (Express + Axios)
+- Open Food Facts API
 
-## ⚡Setup & Installation
+## 🛠️How To Run The Project
 
-1. Clone the repository:
+**🔧 Prerequisites**
 
-```sh
-git clone [repository URL]
+- Node.js (v16+)
+- A modern browser (Chrome recommended for barcode scanning)
+
+**📦 Installation**
+
+1. Clone the repository
+
+```
+	git clone https://github.com/03-renate/kidbank.git
+cd kidbank
 ```
 
-2. Navigate to the project folder:
+2. Install Node.js dependencies:
 
-```sh
-cd teen-financial-tool
+```
+npm install
 ```
 
-3. Open `index.html` in a web browser.
+## 🚀 Setting Up the Proxy Server
+
+To run the proxy server for barcode scanning, follow these steps:
+
+### 1️⃣ Install Node.js (if not installed)
+
+Ensure you have Node.js installed. You can check by running:
+
+```
+node -v
+```
+
+If not installed, download and install it from here.
+
+### 2️⃣ Navigate to the Project Folder
+
+Open a terminal and move into the project's directory:
+
+```
+cd /path/to/your/project
+```
+
+### 3️⃣ Install Dependencies
+
+Run the following command to install required modules:
+
+```
+npm install express axios cors
+```
+
+### 4️⃣ Start the Proxy Server
+
+Run the server with:
+
+```
+node proxy.js
+```
+
+If using ES Modules (import instead of require), ensure "type": "module" is in package.json:
+
+```
+{
+  "type": "module"
+}
+```
+
+### 5️⃣ Test the Proxy\*\*
+
+Open a browser or use Postman to test if the server works:
+
+```
+http://localhost:4000/barcode/1234567890123
+```
+
+(Replace 1234567890123 with a real barcode.)
+If you get a JSON response, the proxy is working! 🎉
+'
+
+## ▶️Running the Proxy Server
+
+A proxy server is required to fetch product data from Open Food Facts (due to CORS limitations).
+To start the proxy:
+
+```
+node proxy.js
+```
+
+• This will run on: http://localhost:4000
+Ensure the proxy is running in the background before using the scanner.
+
+## 🌐 Using the App
+
+1. Open the HTML file (e.g., index.html and click Scann) in your browser. (Live Server is recommended)
+2. Click Scan to open the barcode scanner modal.
+3. Allow camera access when prompted.
+4. Scan a barcode — product details will be fetched from the proxy and displayed.
+
+## 💡 Troubleshooting
+
+- **403 or connection errors**: Ensure the proxy server is running.
+- **Port already in use**: Change the port number in proxy.js and update the fetch URL in your JavaScript.
+- **Camera not working**: Make sure to allow browser camera permissions. Chrome supports BarcodeDetector best.
+- **Product not found** : Not all barcodes exist in the Open Food Facts database.
 
 ## 🤝Contribution Guidelines
 
@@ -95,20 +187,21 @@ cd teen-financial-tool
 2. **Planning Phase:** Break tasks into manageable issues.
 3. **Sprint Work:** Assign tasks, develop features, and review code.
 
-## Ideas for Future Features
+## Credit
 
-- **User Authentication:** Create user accounts for personalized balances and settings.
-- **Category Restrictions:** Automatically block certain categories of products.
-- **Parental Controls:** Allow parents to set spending limits and rules.
+- Barcode scanning via the Web's BarcodeDetector API
+- Product data from Open Food Facts
 
-## 📜License
+## Resources
+
+- [Design](https://www.figma.com/design/YkFgB3cGEkEr7rMvtC3wWG/Agency-1---CA?node-id=0-1&t=mGzPBWFzFWYLwIAe-1)
+
+## License
 
 This project is open-source and free to use.
 
 ## Contact
 
 For any question or feedback, feel free to reach out via GitHub Iussues.
-
----
 
 Feel free to reach out if you'd like to contribute or need more information! 🚀
