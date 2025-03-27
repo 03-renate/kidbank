@@ -8,6 +8,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
     />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <style>
       body {
         font-family: "Poppins", sans-serif;
@@ -65,6 +66,11 @@
         border-radius: 8px;
         cursor: pointer;
       }
+
+      .qr-container {
+        margin-top: 20px;
+        text-align: center;
+      }
     </style>
   </head>
   <body>
@@ -73,20 +79,17 @@
       <video id="camera" autoplay muted playsinline></video>
       <div class="product-list" id="productList"></div>
       <button id="finish-btn">Finish & Generate QR</button>
+      <div class="qr-container" id="qrContainer"></div>
     </div>
 
     <script>
       const video = document.getElementById("camera");
       const productList = document.getElementById("productList");
       const finishBtn = document.getElementById("finish-btn");
+      const qrContainer = document.getElementById("qrContainer");
 
       const restrictedKeywords = [
-        "cigarette",
-        "alcohol",
-        "vodka",
-        "energy drink",
-        "beer",
-        "whiskey",
+        "cigarette", "alcohol", "vodka", "energy drink", "beer", "whiskey"
       ];
       const scannedProducts = new Map();
 
@@ -98,9 +101,7 @@
           });
           video.srcObject = stream;
 
-          const barcodeDetector = new BarcodeDetector({
-            formats: ["ean_13", "code_128"],
-          });
+          const barcodeDetector = new BarcodeDetector({ formats: ["ean_13", "code_128"] });
 
           setInterval(async () => {
             try {
@@ -108,23 +109,16 @@
               if (barcodes.length > 0) {
                 const code = barcodes[0].rawValue;
                 if (!scannedProducts.has(code)) {
-                  // Fetch product info from your proxy server
-                  const response = await fetch(
-                    `http://localhost:4000/barcode/${code}`
-                  );
+                  const response = await fetch(`http://localhost:4000/barcode/${code}`);
                   if (!response.ok) throw new Error("Product not found");
                   const product = await response.json();
 
-                  const productName =
-                    product.product_name || `Unknown Product (${code})`;
-                  const isRestricted = restrictedKeywords.some((keyword) =>
+                  const productName = product.product_name || `Unknown Product (${code})`;
+                  const isRestricted = restrictedKeywords.some(keyword =>
                     productName.toLowerCase().includes(keyword)
                   );
 
-                  scannedProducts.set(code, {
-                    name: productName,
-                    restricted: isRestricted,
-                  });
+                  scannedProducts.set(code, { name: productName, restricted: isRestricted });
                   updateProductList();
                 }
               }
@@ -142,9 +136,7 @@
         productList.innerHTML = "";
         scannedProducts.forEach((data, code) => {
           const item = document.createElement("div");
-          item.className = `product-item ${
-            data.restricted ? "restricted" : "allowed"
-          }`;
+          item.className = `product-item ${data.restricted ? "restricted" : "allowed"}`;
           item.innerHTML = `
             <span>${data.name}</span>
             <strong>${data.restricted ? "❌ Restricted" : "✅ Allowed"}</strong>
@@ -154,14 +146,23 @@
       }
 
       finishBtn.addEventListener("click", () => {
-        const allowedProducts = Array.from(scannedProducts.values()).filter(
-          (p) => !p.restricted
-        );
-        localStorage.setItem(
-          "allowedProducts",
-          JSON.stringify(allowedProducts)
-        );
-        window.location.href = "checkout.html";
+        const restrictedItems = Array.from(scannedProducts.values()).filter(p => p.restricted);
+        if (restrictedItems.length > 0) {
+          alert("Some products are restricted and cannot be purchased.");
+          return;
+        }
+
+        const allowedProducts = Array.from(scannedProducts.values()).filter(p => !p.restricted);
+        if (allowedProducts.length === 0) {
+          alert("No allowed products to generate a QR code.");
+          return;
+        }
+
+        localStorage.setItem("allowedProducts", JSON.stringify(allowedProducts));
+
+        const checkoutURL = `https://yourwebsite.com/checkout.html?products=${encodeURIComponent(JSON.stringify(allowedProducts))}`;
+        qrContainer.innerHTML = `<h3>Scan this QR code to proceed to payment</h3>`;
+        new QRCode(qrContainer, { text: checkoutURL, width: 150, height: 150 });
       });
 
       document.addEventListener("DOMContentLoaded", startCameraAndScan);
