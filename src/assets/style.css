@@ -845,12 +845,16 @@ h4 {
   align-items: flex-end;
   flex-wrap: wrap; /* Ensures responsiveness */
   max-width: 90%;
-  min-width: 200px;
+  min-width: 230px;
   height: 250px;
   border-left: 2px solid #005f73;
   border-bottom: 2px solid #005f73;
   padding: 1rem;
   gap: 10px;
+
+  @media (width>950px) {
+    width: 380px;
+  }
 }
 .food-bar,
 .entertainment-bar,
@@ -886,12 +890,18 @@ h4 {
 
 .months {
   display: flex;
-  gap: 4rem;
-  width: 230px;
+  gap: 1rem;
+  width: 235px;
   margin-top: 10px;
   color: #002432;
   font-size: var(--span-size-s);
-  padding-left: 2.5rem;
+
+  font-size: var(--span-size-s);
+
+  @media (width>950px) {
+    gap: 3rem;
+    padding-left: 2.2rem;
+  }
 }
 
 .spending-categories {
