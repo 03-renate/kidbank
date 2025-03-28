@@ -10,7 +10,6 @@ body {
 
   background-color: #f9f9f9;
 
-
   color: #333;
   line-height: 1.6;
 }
@@ -52,8 +51,6 @@ body {
 .sidebar.collapsed .user-profile {
   display: none;
 }
-
-
 
 /* Make menu icons center-alligned when collapsed */
 .sidebar.collapse .menu-item {
@@ -192,7 +189,6 @@ body {
   transform: rotate(180deg);
 }
 
-
 .sidebar.collapsed + .main-content {
   margin-left: 60px;
 }
@@ -201,17 +197,12 @@ body {
   margin-left: 50px; /* Reduce gap when sidebar is collapsed */
 }
 
-
-
-
 /* Main Content */
 .main-content {
   padding: 20px;
   margin-left: 260px; /* Default margin when the side bar is open */
   transition: margin-left 0.3s ease;
 }
-
-
 
 /*RENATE - PROFILE - START*/
 .profile-container {
@@ -241,7 +232,6 @@ body {
   color: #313589;
   text-transform: capitalize;
 }
-/*RENATE - PROFILE - END*/
 
 /* RENATE - HERO SECTION - START */
 .hero-container {
@@ -309,7 +299,6 @@ body {
   margin-right: 5px;
 }
 
-
 #blurred-currency {
   transition: filter 0.3s ease;
 }
@@ -339,7 +328,6 @@ body {
   background-color: #f9f9f9;
 
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-
 }
 
 .action-btn:hover {
@@ -388,7 +376,6 @@ body {
     display: flex;
   }
 }
-/* RENATE - HERO SECTION - END */
 
 /* Section Headers */
 .section-header {
@@ -409,26 +396,6 @@ body {
   text-decoration: none;
   font-weight: 500;
 }
-
-/*.add-goal {
-  background-color: #5e72e4;
-  color: white;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-}
-span.add-goal {
- background-color: #f8f9fa;
- color: #5e72e4;
-}
-=======
-  background-color: #f8f9fa;
-  color: #5e72e4;
-}*/
 
 /* Spending Categories */
 .category-list {
@@ -870,7 +837,6 @@ h4 {
   margin-top: 15px;
 }
 
-
 /* Online Shop Section */
 .shop-online {
   padding: 20px;
@@ -951,51 +917,6 @@ iframe {
 .remove-store-btn:hover {
   color: darkred;
 }
-
-
-/* Saving Goals 
-.goals-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 15px;
-  margin-bottom: 25px;
-}
-
-.goal-card {
-  background-color: white;
-  border-radius: 12px;
-  padding: 15px;
-  display: flex;
-  align-items: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-}
-
-.goal-icon {
-  width: 50px;
-  height: 50px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 15px;
-  font-size: 1.3rem;
-  color: white;
-  background-color: #825ee4;
-}
-
-.goal-info {
-  flex: 1;
-}
-
-.goal-info h3 {
-  font-size: 0.95rem;
-  margin-bottom: 5px;
-  color: #333;
-}
-
-.of-target {
-  color: #999;
-}*/
 
 /* Bottom Navigation for Mobile */
 .bottom-nav {
@@ -1147,19 +1068,6 @@ iframe {
   width: 250px;
 }
 
-/*.social-links a {
-  margin: 0 10px;
-  color: #fff;
-  font-size: 24px;
-  text-decoration: none;
-  transition: color 0.3s;
-  scale: 1.1;
-}
-
-.social-links a:hover {
-  color: #f5d000;
-}*/
-
 .members {
   flex: 1;
   display: flex;
@@ -1303,7 +1211,6 @@ iframe {
 .color-icon-dishes {
   background-color: #5e72e4;
 }
-
 
 @media (max-width: 767px) {
   .main-content {
