@@ -238,7 +238,7 @@ body {
 /* Main Content */
 .main-content {
   padding: 20px;
-  margin-left: 260px; /* Default margin when the side bar is open */
+
   transition: margin-left 0.3s ease;
 }
 
@@ -676,6 +676,10 @@ span.add-goal {
   @media (min-width: 900px) {
     padding-left: 1.7rem;
   }
+
+  @media (width<900px) {
+    display: none;
+  }
 }
 
 .monthly-overview-card {
@@ -836,62 +840,65 @@ h4 {
 }
 
 .chart-container {
-  max-width: 400px;
-  height: 240px;
   display: flex;
+  justify-content: center;
   align-items: flex-end;
-  border-left: 1.6px solid #005f73;
-  border-bottom: 1.6px solid #005f73;
-  padding: 10px;
-  padding-top: 3rem;
+  flex-wrap: wrap; /* Ensures responsiveness */
+  max-width: 90%;
+  min-width: 200px;
+  height: 250px;
+  border-left: 2px solid #005f73;
+  border-bottom: 2px solid #005f73;
+  padding: 1rem;
+  gap: 10px;
 }
-.food-bar {
-  width: 90px;
-  height: 50px;
-  margin: 0 15px;
-  background-color: #ee9b00;
+.food-bar,
+.entertainment-bar,
+.shopping-bar {
+  flex: 1;
+  min-width: 50px; /* Ensures bars don’t shrink too much */
+  max-width: 100px;
   text-align: center;
   color: white;
   font-size: var(--span-size-s);
   display: flex;
   align-items: flex-end;
   justify-content: center;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+/* Individual bar heights */
+.food-bar {
+  background-color: #ee9b00;
+  height: 50px;
 }
 
 .entertainment-bar {
-  width: 90px;
-  height: 120px;
-  margin: 0 15px;
   background-color: #b3cea3;
-  text-align: center;
-  color: white;
-  font-size: var(--span-size-s);
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
+  height: 120px;
 }
 
 .shopping-bar {
-  width: 90px;
-  height: 90px;
-  margin: 0 15px;
   background-color: #4a9998;
-  text-align: center;
-  color: white;
-  font-size: var(--span-size-s);
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
+  height: 90px;
 }
 
 .months {
   display: flex;
   gap: 4rem;
-  width: 100%;
+  width: 230px;
   margin-top: 10px;
   color: #002432;
   font-size: var(--span-size-s);
   padding-left: 2.5rem;
+}
+
+.spending-categories {
+  padding-top: 1.5rem;
+  @media (width>900px) {
+    display: none;
+  }
 }
 
 /* Restricted Modal */
@@ -1051,7 +1058,7 @@ h4 {
   margin-right: 15px;
   font-size: 1.3rem;
   color: white;
-  background-color: #825ee4;
+  background-color: #94d2bd;
 }
 
 .goal-info {
