@@ -935,6 +935,23 @@ iframe {
   border: none;
 }
 
+.store-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.remove-store-btn {
+  background: none;
+  border: none;
+  color: red;
+  font-size: 16px;
+  cursor: pointer;
+}
+.remove-store-btn:hover {
+  color: darkred;
+}
+
 
 /* Saving Goals 
 .goals-list {

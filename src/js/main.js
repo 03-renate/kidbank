@@ -62,24 +62,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const storeInput = document.getElementById("storeInput");
   const addStoreBtn = document.getElementById("addStoreBtn");
 
-  // Function to open a store inside the webview
   function openStore(url) {
     webView.src = url;
     webViewContainer.style.display = "block";
   }
 
-  // Click event for default store buttons
-  document.querySelectorAll(".store-btn").forEach((button) => {
-    button.addEventListener("click", () => openStore(button.dataset.url));
-  });
-
-  // Add favorite store
-  addStoreBtn.addEventListener("click", () => {
-    const url = storeInput.value.trim();
-    if (!url.startsWith("http")) {
-      alert("Please enter a valid URL (e.g., https://example.com)");
-      return;
-    }
+  function createStoreButton(url) {
+    const storeItem = document.createElement("div");
+    storeItem.classList.add("store-item");
 
     const storeButton = document.createElement("button");
     storeButton.classList.add("store-btn");
@@ -89,41 +79,52 @@ document.addEventListener("DOMContentLoaded", () => {
     }`;
     storeButton.addEventListener("click", () => openStore(url));
 
-    storeList.appendChild(storeButton);
-    storeInput.value = "";
+    // Add Remove Button
+    const removeBtn = document.createElement("button");
+    removeBtn.classList.add("remove-store-btn");
+    removeBtn.innerHTML = "❌";
+    removeBtn.addEventListener("click", () => {
+      storeItem.remove();
+      saveFavorites();
+    });
 
-    // Save favorite stores to localStorage
+    storeItem.appendChild(storeButton);
+    storeItem.appendChild(removeBtn);
+    storeList.appendChild(storeItem);
+  }
+
+  addStoreBtn.addEventListener("click", () => {
+    const url = storeInput.value.trim();
+    if (!url.startsWith("http")) {
+      alert("Please enter a valid URL (e.g., https://example.com)");
+      return;
+    }
+
+    createStoreButton(url);
+    storeInput.value = "";
     saveFavorites();
   });
 
-  // Save favorites in localStorage
   function saveFavorites() {
-    const stores = Array.from(storeList.querySelectorAll(".store-btn"))
+    const stores = Array.from(
+      storeList.querySelectorAll(".store-item .store-btn")
+    )
       .map((btn) => btn.dataset.url)
-      .slice(4); // Skip default stores
+      .slice(4);
 
     localStorage.setItem("favoriteStores", JSON.stringify(stores));
   }
 
-  // Load favorites from localStorage
   function loadFavorites() {
     const savedStores = JSON.parse(
       localStorage.getItem("favoriteStores") || "[]"
     );
-    savedStores.forEach((url) => {
-      const storeButton = document.createElement("button");
-      storeButton.classList.add("store-btn");
-      storeButton.dataset.url = url;
-      storeButton.innerHTML = `<i class="fas fa-globe"></i> ${
-        new URL(url).hostname
-      }`;
-      storeButton.addEventListener("click", () => openStore(url));
-      storeList.appendChild(storeButton);
-    });
+    savedStores.forEach((url) => createStoreButton(url));
   }
 
   loadFavorites();
 });
+
 
 // Show notification function
 function showNotification(message, type = "info") {
