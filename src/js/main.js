@@ -11,7 +11,6 @@ const toggleButton = document.getElementById("toggleSidebar");
 
 const taskCards = document.querySelectorAll(".task-card");
 
-
 //Navigation
 
 // Set initial state - expanded on desktop
@@ -53,43 +52,77 @@ window.addEventListener("click", (e) => {
   }
 });
 
-// Test buttons functionality
-testButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    const item = button.getAttribute("data-item");
-    const category = button.getAttribute("data-category");
-    const amount = button.getAttribute("data-amount");
+//ONLINE SHOP SECTION
+// Existing JavaScript functionality
 
-    if (button.classList.contains("restricted")) {
-      // Show restriction modal
-      restrictedItem.textContent = item;
+document.addEventListener("DOMContentLoaded", () => {
+  const webView = document.getElementById("webView");
+  const webViewContainer = document.querySelector(".webview-container");
+  const storeList = document.getElementById("storeList");
+  const storeInput = document.getElementById("storeInput");
+  const addStoreBtn = document.getElementById("addStoreBtn");
 
-      // Set appropriate reason based on the item
-      if (item.includes("Energy Drink")) {
-        restrictionReason.textContent = "Age restricted product (16+)";
-      } else if (item.includes("Adult Content") || item.includes("18+")) {
-        restrictionReason.textContent = "Age restricted content (18+)";
-      } else {
-        restrictionReason.textContent =
-          "Purchase not allowed for teen accounts";
-      }
+  // Function to open a store inside the webview
+  function openStore(url) {
+    webView.src = url;
+    webViewContainer.style.display = "block";
+  }
 
-      // Display the modal
-      restrictedModal.style.display = "flex";
-    } else {
-      // Show success notification for allowed purchases
-      showNotification(
-        `Successfully purchased ${item} for $${amount}!`,
-        "success"
-      );
-
-      // Update balance (simulating a real transaction)
-      updateBalance(-amount);
-
-      // Add transaction to list (for simulation only)
-      addTransaction(item, category, amount);
-    }
+  // Click event for default store buttons
+  document.querySelectorAll(".store-btn").forEach((button) => {
+    button.addEventListener("click", () => openStore(button.dataset.url));
   });
+
+  // Add favorite store
+  addStoreBtn.addEventListener("click", () => {
+    const url = storeInput.value.trim();
+    if (!url.startsWith("http")) {
+      alert("Please enter a valid URL (e.g., https://example.com)");
+      return;
+    }
+
+    const storeButton = document.createElement("button");
+    storeButton.classList.add("store-btn");
+    storeButton.dataset.url = url;
+    storeButton.innerHTML = `<i class="fas fa-globe"></i> ${
+      new URL(url).hostname
+    }`;
+    storeButton.addEventListener("click", () => openStore(url));
+
+    storeList.appendChild(storeButton);
+    storeInput.value = "";
+
+    // Save favorite stores to localStorage
+    saveFavorites();
+  });
+
+  // Save favorites in localStorage
+  function saveFavorites() {
+    const stores = Array.from(storeList.querySelectorAll(".store-btn"))
+      .map((btn) => btn.dataset.url)
+      .slice(4); // Skip default stores
+
+    localStorage.setItem("favoriteStores", JSON.stringify(stores));
+  }
+
+  // Load favorites from localStorage
+  function loadFavorites() {
+    const savedStores = JSON.parse(
+      localStorage.getItem("favoriteStores") || "[]"
+    );
+    savedStores.forEach((url) => {
+      const storeButton = document.createElement("button");
+      storeButton.classList.add("store-btn");
+      storeButton.dataset.url = url;
+      storeButton.innerHTML = `<i class="fas fa-globe"></i> ${
+        new URL(url).hostname
+      }`;
+      storeButton.addEventListener("click", () => openStore(url));
+      storeList.appendChild(storeButton);
+    });
+  }
+
+  loadFavorites();
 });
 
 // Show notification function

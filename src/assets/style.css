@@ -870,52 +870,71 @@ h4 {
   margin-top: 15px;
 }
 
-/* Payment Simulator */
-.payment-simulator {
-  background-color: white;
-  border-radius: 15px;
+
+/* Online Shop Section */
+.shop-online {
   padding: 20px;
-  margin-bottom: 25px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-}
-
-.simulator-description {
-  margin-bottom: 15px;
-  font-size: 0.95rem;
-  color: #666;
-}
-
-.test-purchases {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
-}
-
-.test-btn {
-  border: none;
+  background: #f5f6fa;
   border-radius: 10px;
-  padding: 15px;
-  cursor: pointer;
+}
+
+.add-store {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #f8f9fa;
-  transition: transform 0.2s;
+  gap: 10px;
+  margin-bottom: 15px;
 }
 
-.test-btn i {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-  color: #5e72e4;
+#storeInput {
+  flex-grow: 1;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
 }
 
-.test-btn.restricted i {
-  color: #ff396f;
+#addStoreBtn {
+  padding: 10px 15px;
+  border: none;
+  background: #5e72e4;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-.test-btn:hover {
-  transform: translateY(-3px);
+.store-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 15px;
 }
+
+.store-btn {
+  padding: 10px 15px;
+  border: none;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.store-btn:hover {
+  background: #e0e7ff;
+}
+
+.webview-container {
+  width: 100%;
+  height: 500px;
+  border-radius: 10px;
+  overflow: hidden;
+  display: none;
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
 
 /* Saving Goals 
 .goals-list {
