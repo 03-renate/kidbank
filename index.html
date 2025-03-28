@@ -344,55 +344,41 @@
           </div>
         </section>
 
-        <!-- Payment Simulator -->
-        <section class="payment-simulator">
-          <div class="section-header">
-            <h2>Test Payment Restrictions</h2>
-          </div>
-          <div class="simulator-container">
-            <p class="simulator-description">
-              Try our payment restriction system with these example purchases:
-            </p>
-            <div class="test-purchases">
-              <button
-                class="test-btn allowed"
-                data-item="Movie Ticket"
-                data-amount="12.50"
-                data-category="Entertainment"
-              >
-                <i class="fas fa-ticket-alt"></i>
-                <span>Movie Ticket</span>
-              </button>
-              <button
-                class="test-btn allowed"
-                data-item="Headphones"
-                data-amount="49.99"
-                data-category="Electronics"
-              >
-                <i class="fas fa-headphones"></i>
-                <span>Headphones</span>
-              </button>
-              <button
-                class="test-btn restricted"
-                data-item="Energy Drink"
-                data-amount="3.99"
-                data-category="Age Restricted"
-              >
-                <i class="fas fa-bolt"></i>
-                <span>Energy Drink</span>
-              </button>
-              <button
-                class="test-btn restricted"
-                data-item="Adult Content Subscription"
-                data-amount="14.99"
-                data-category="18+ Content"
-              >
-                <i class="fas fa-user-lock"></i>
-                <span>18+ Subscription</span>
-              </button>
-            </div>
-          </div>
-        </section>
+        <!-- Online Shop Section -->
+      <section class="shop-online">
+        <div class="section-header">
+          <h2>Shop Online</h2>
+          <p>Browse and shop directly inside the KidBank app.</p>
+        </div>
+        
+        <!-- Favorite Store Input -->
+        <div class="add-store">
+          <input type="text" id="storeInput" placeholder="Enter store URL (e.g., https://www.zalando.com)">
+          <button id="addStoreBtn">Add Store</button>
+        </div>
+        
+        <!-- Favorite Stores List -->
+        <div class="store-list" id="storeList">
+          <!-- Default Stores -->
+          <button class="store-btn" data-url="https://www.amazon.com">
+            <i class="fas fa-shopping-cart"></i> Amazon
+          </button> 
+          <button class="store-btn" data-url="https://www.finn.no">
+            <i class="fas fa-home"></i> Finn.no
+          </button>
+          <button class="store-btn" data-url="https://www.zalando.com">
+            <i class="fas fa-tshirt"></i> Zalando
+          </button>
+          <button class="store-btn" data-url="https://www.ebay.com">
+            <i class="fas fa-box"></i> eBay
+          </button>
+        </div>
+        
+        <!-- Embedded WebView -->
+        <div class="webview-container">
+          <iframe id="webView" src="" frameborder="0"></iframe>
+        </div>
+      </section>
 
 
         <!-- Saving Goals 
