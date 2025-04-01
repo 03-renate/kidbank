@@ -1272,7 +1272,7 @@ iframe {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top: solid 0.3rem #7082e6;
+  border-top: solid 0.3rem #005f73;
   color: #f9f9f9;
   padding: 30px 20px;
 }
@@ -1311,13 +1311,13 @@ iframe {
   text-align: center;
   cursor: pointer;
   border-radius: 5px;
-  color: #7082e6;
+  color: #4a9998;
   background-color: #f9f9f9;
 }
 
 .members span:hover {
-  background-color: #ff8500;
-  color: #313589;
+  background-color: #005f73;
+  color: #94d2bd;
 }
 
 /* Pop-up */
