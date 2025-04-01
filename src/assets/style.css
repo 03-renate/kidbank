@@ -562,7 +562,7 @@ span.add-goal {
 
 .progress-bar {
   height: 8px;
-  background-color: var(--container-color);
+  background-color: rgb(239, 239, 239);
   border-radius: 4px;
   margin-bottom: 5px;
   overflow: hidden;
@@ -1044,6 +1044,50 @@ h4 {
   margin-top: 15px;
 }
 
+/*Saving Goals*/
+.goals-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.goal-card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.goal-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  font-size: 1.3rem;
+  color: white;
+  background-color: #4a9998;
+}
+
+.goal-info {
+  flex: 1;
+}
+
+.goal-info h3 {
+  font-size: 0.95rem;
+  margin-bottom: 5px;
+  color: #002432;
+}
+
+.of-target {
+  color: #999;
+}
+
 /* Online Shop Section */
 .shop-online {
   padding: 20px;
@@ -1406,10 +1450,11 @@ iframe {
 }
 
 .checkbox-icon.color {
-  background-color: #ee9b00;
+  background-color: #94d2bd;
 }
 .task-info {
   flex: 1;
+  font-size: 0.9rem;
 }
 .task-info p {
   font-size: 0.85rem;
