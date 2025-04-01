@@ -152,13 +152,13 @@ function showNotification(message, type = "info") {
   notification.style.alignItems = "center";
 
   if (type === "success") {
-    notification.style.backgroundColor = "#2dce89";
+    notification.style.backgroundColor = "#005F73";
     notification.style.color = "white";
   } else if (type === "error") {
-    notification.style.backgroundColor = "#ff396f";
+    notification.style.backgroundColor = "#002432";
     notification.style.color = "white";
   } else {
-    notification.style.backgroundColor = "#5e72e4";
+    notification.style.backgroundColor = "#94D2BD";
     notification.style.color = "white";
   }
 
@@ -272,7 +272,7 @@ document
     addMoneyModal.innerHTML = `
         <div class="modal-content">
             <span class="close-add-modal">&times;</span>
-            <div class="modal-icon" style="background-color: #2dce89;">
+            <div class="modal-icon" style="background-color: #94D2BD;">
                 <i class="fas fa-wallet"></i>
             </div>
             <h2>Add Money</h2>
@@ -308,22 +308,22 @@ document
 
     amountOptions.forEach((option) => {
       option.style.padding = "10px";
-      option.style.border = "2px solid #5e72e4";
+      option.style.border = "2px solid #EE9B00";
       option.style.borderRadius = "8px";
       option.style.background = "none";
-      option.style.color = "#5e72e4";
+      option.style.color = "#EE9B00";
       option.style.fontWeight = "500";
       option.style.cursor = "pointer";
       option.style.transition = "all 0.2s ease";
 
       option.addEventListener("mouseover", () => {
-        option.style.backgroundColor = "#5e72e4";
+        option.style.backgroundColor = "#EE9B00";
         option.style.color = "white";
       });
 
       option.addEventListener("mouseout", () => {
         option.style.backgroundColor = "transparent";
-        option.style.color = "#5e72e4";
+        option.style.color = "#EE9B00";
       });
 
       option.addEventListener("click", () => {
