@@ -418,7 +418,7 @@ document.querySelector(".add-goal").addEventListener("click", () => {
   addGoalModal.innerHTML = `
         <div class="modal-content">
             <span class="close-goal-modal">&times;</span>
-            <div class="modal-icon" style="background-color: #825ee4;">
+            <div class="modal-icon" style="background-color: #94D2BD;">
                 <i class="fas fa-piggy-bank"></i>
             </div>
             <h2>Add Savings Goal</h2>
@@ -510,7 +510,7 @@ document.querySelector(".add-goal").addEventListener("click", () => {
     option.style.color = "#666";
 
     if (option.classList.contains("selected")) {
-      option.style.backgroundColor = "#825ee4";
+      option.style.backgroundColor = "#EE9B00";
       option.style.color = "white";
     }
 
@@ -524,7 +524,7 @@ document.querySelector(".add-goal").addEventListener("click", () => {
 
       // Add selected class to clicked option
       option.classList.add("selected");
-      option.style.backgroundColor = "#825ee4";
+      option.style.backgroundColor = "#EE9B00";
       option.style.color = "white";
 
       // Update hidden input
@@ -620,7 +620,7 @@ function showAddToGoalModal(
   addToGoalModal.innerHTML = `
         <div class="modal-content">
             <span class="close-add-to-goal-modal">&times;</span>
-            <div class="modal-icon" style="background-color: #825ee4;">
+            <div class="modal-icon" style="background-color: #EE9B00;">
                 <i class="fas fa-piggy-bank"></i>
             </div>
             <h2>Add to "${goalName}"</h2>
