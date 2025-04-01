@@ -36,11 +36,9 @@
 body {
   font-family: "Poppins", sans-serif;
 
-
   background-color: var(--bg-color);
 
   background-color: #f9f9f9;
-
 
   color: #333;
   line-height: 1.6;
@@ -75,8 +73,6 @@ body {
 
 .sidebar.collapsed {
   width: 50px; /* Ensure the width shrinks */
-
-  
 }
 
 /* Hide the tyext when it colapsed */
@@ -115,7 +111,6 @@ body {
 
 .sidebar.collapsed + .toggle-button .toggle-icon {
   transform: rotate(180deg);
-
 }
 
 /* Hide the tyext when it colapsed */
@@ -284,8 +279,6 @@ body {
 .main-content {
   padding: 20px;
 
-
-
   margin-left: 260px; /* Default margin when the side bar is open */
 
   transition: margin-left 0.3s ease;
@@ -309,7 +302,6 @@ body {
   background-color: #f9f9f9;
   border-radius: 50%;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-
 }
 
 .profile-container .profile-img i {
@@ -319,7 +311,6 @@ body {
 .profile-container #profile-name {
   color: #313589;
   text-transform: capitalize;
-
 }
 
 .profile-container .profile-img i {
@@ -498,7 +489,6 @@ body {
   font-weight: 500;
 }
 
-
 /*.add-goal {
   background-color: #5e72e4;
   color: white;
@@ -518,7 +508,6 @@ span.add-goal {
   background-color: #f8f9fa;
   color: #5e72e4;
 }*/
-
 
 /* Spending Categories */
 .category-list {
@@ -1134,7 +1123,6 @@ iframe {
   flex: 1;
 
   gap: 8px;
-
 }
 
 .remove-store-btn {
@@ -1418,7 +1406,7 @@ iframe {
 }
 
 .checkbox-icon.color {
-  background-color: #1db954;
+  background-color: #ee9b00;
 }
 .task-info {
   flex: 1;
@@ -1436,10 +1424,10 @@ iframe {
   color: bl;
 }
 .color-icon-trash {
-  background-color: rgb(128, 128, 128);
+  background-color: #b3cea3;
 }
 .color-icon-dishes {
-  background-color: #5e72e4;
+  background-color: #d1ca89;
 }
 
 @media (max-width: 767px) {
