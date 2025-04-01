@@ -12,6 +12,9 @@
     "vite": "^6.2.0"
   },
   "dependencies": {
-    "chart.js": "^4.4.8"
+    "axios": "^1.8.4",
+    "chart.js": "^4.4.8",
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
   }
 }

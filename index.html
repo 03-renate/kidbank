@@ -16,6 +16,8 @@
       rel="stylesheet"
     />
     <script src="/src/js/main.js" defer></script>
+    <script src="/src/js/eyeBtn.js" defer></script>
+
   </head>
   <body>
     <div class="app-container">
@@ -23,29 +25,35 @@
 
       <div class="sidebar" id="sidebar">
         <div class="sidebar-header">
-          <span class="logo">Pointsale</span>
+          <span class="logo">KidBank</span>
         </div>
         <ul class="menu-list">
           <li class="menu-item active">
-            <i class="fas fa-home"></i> <span>Home </span>
+            <i class="fas fa-home"></i> <span class="menu-text">Home</span>
           </li>
           <li class="menu-item">
-            <i class="fas fa-chart-line"></i> <span>Budget </span>
+            <i class="fa-solid fa-money-check-dollar"></i>
+            <span class="menu-text">Budget</span>
           </li>
           <li class="menu-item">
-            <i class="fas fa-file-invoice"></i> <span>Wallet</span>
+            <i class="fa-solid fa-wallet"></i>
+            <span class="menu-text">Wallet</span>
           </li>
           <li class="menu-item">
-            <i class="fas fa-users"></i> <span>About/Learn</span>
+            <i class="fas fa-users"></i>
+            <span class="menu-text">About</span>
           </li>
           <li class="menu-item">
-            <i class="fas fa-trash"></i> <span>Settings</span>
+            <i class="fa-solid fa-gear"></i> 
+            <span class="menu-text">Settings</span>
           </li>
         </ul>
+
         <div class="user-profile">
-          <div class="avatar">K.C.</div>
+          <!-- <div class="avatar">K.C.</div> -->
+          <div><img src="./img/piggy-logo.png" class="avatar-logo"></div>
           <div>
-            <div class="user-name">Kid Child</div>
+            <div class="user-name">KidBank</div>
             <div class="user-status">Pro trial</div>
           </div>
         </div>
@@ -58,37 +66,51 @@
 
       <!-- Main Content -->
       <main class="main-content">
+        <!-- RENATE - PROFILE - START -->
+         <section class="profile-container">
+              <div class="profile-img">
+                <i class="fa-solid fa-user"></i>
+              </div>
+              <div id="profile-name">
+                <p id="username">username</p>
+              </div>
+         </section>
+
         <!-- RENATE - HERO SECTION - START -->
         <section class="hero-container">
+          
           <!-- CARD INFORMATION -->
           <article class="hero-right">
             <div class="card-header">
               <p>Your Balance:</p>
-              <span class="card-icon"><i class="fas fa-eye"></i></span>
+              <button onclick="hideShow()" class="card-icon">
+                <i class="fas fa-eye"></i>
+              </button>
             </div>
+            
             <div class="balance-amount">
-              <span class="currency">
-                <h1>$ Something</h1>
-              </span>
+              <div id="blurred-currency" class="currency">
+                <h1 id="re_balance">$0.00</h1>
+              </div>
             </div>
-
-            <div class="wave"></div>
-            <div class="wave"></div>
           </article>
 
           <!-- HERO BTNS -->
           <article class="hero-left">
-            <button class="action-btn add-money">
+            <button class="action-btn add-money" aria-label="Request Money">
               <i class="fas fa-hand-holding-usd"></i>
               <span>Request</span>
             </button>
-            <button class="action-btn pay">
-              <i class="fa-solid fa-arrow-right-arrow-left"></i>
-              <span>Transfer</span>
-            </button>
-            <button class="action-btn request">
-              <i class="fa-solid fa-piggy-bank"></i>
-              <span>Savings</span>
+
+            <a href="/src/pages/barcode_scanner.html" class="action-btn pay" aria-label="Transfer Money">
+             <i class="fa-solid fa-barcode"></i></i>
+             <span class="scann_font">Scan</span>
+            </a>
+
+
+            <button class="action-btn request" aria-label="Savings">
+              <i class="fas fa-piggy-bank"></i>
+              <span class="add-goal">Savings</span>
             </button>
           </article>
         </section>
@@ -275,127 +297,128 @@
           </div>
         </div>
 
-        <!-- Payment Simulator -->
-        <section class="payment-simulator">
+        <!-- Assign Tasks -->
+        <section>
           <div class="section-header">
-            <h2>Test Payment Restrictions</h2>
+            <h2>Your Tasks</h2>
+            <a href="#" class="view-all">View All</a>
           </div>
-          <div class="simulator-container">
-            <p class="simulator-description">
-              Try our payment restriction system with these example purchases:
-            </p>
-            <div class="test-purchases">
-              <button
-                class="test-btn allowed"
-                data-item="Movie Ticket"
-                data-amount="12.50"
-                data-category="Entertainment"
-              >
-                <i class="fas fa-ticket-alt"></i>
-                <span>Movie Ticket</span>
-              </button>
-              <button
-                class="test-btn allowed"
-                data-item="Headphones"
-                data-amount="49.99"
-                data-category="Electronics"
-              >
-                <i class="fas fa-headphones"></i>
-                <span>Headphones</span>
-              </button>
-              <button
-                class="test-btn restricted"
-                data-item="Energy Drink"
-                data-amount="3.99"
-                data-category="Age Restricted"
-              >
-                <i class="fas fa-bolt"></i>
-                <span>Energy Drink</span>
-              </button>
-              <button
-                class="test-btn restricted"
-                data-item="Adult Content Subscription"
-                data-amount="14.99"
-                data-category="18+ Content"
-              >
-                <i class="fas fa-user-lock"></i>
-                <span>18+ Subscription</span>
-              </button>
+          <div class="task-list">
+            <div class="task-card">
+              <div class="checkbox-icon color">
+              <i class="fa-solid fa-broom"></i>
+            </div>
+            <div class="task-info">
+              <h3>Clean your room</h3>
+              <p>Tidy up, dust and organise things</p>
+            </div>
+            <div class="task-amount ">
+              <p class="amount">$ 10</p>
+              <label><input type="checkbox" /> </label>
+            </div>
+            </div>
+
+            <div class="task-card">
+              <div class="checkbox-icon color-icon-trash">
+              <i class="fa-solid fa-trash"></i>
+            </div>
+            <div class="task-info">
+              <h3>Take out the trash</h3>
+              <p>Collect bag and dispose</p>
+            </div>
+            <div class="task-amount ">
+              <p class="amount  ">$ 15</p>
+              <label><input type="checkbox" /> </label>
+            </div>
+            </div>
+
+            <div class="task-card">
+              <div class="checkbox-icon color-icon-dishes">
+              <i class="fa-solid fa-utensils"></i>
+            </div>
+            <div class="task-info">
+              <h3>Do the dishes</h3>
+              <p>Wash, dry and put away</p>
+            </div>
+            <div class="task-amount ">
+              <p class="amount">$ 15</p>
+              <label><input type="checkbox" /> </label>
             </div>
           </div>
         </section>
 
-        <!-- Saving Goals -->
-        <section class="saving-goals">
-          <div class="section-header">
-            <h2>Saving Goals</h2>
-            <a href="#" class="add-goal"><i class="fas fa-plus"></i></a>
-          </div>
-          <div class="goals-list">
-            <div class="goal-card">
-              <div class="goal-icon">
-                <i class="fas fa-laptop"></i>
-              </div>
-              <div class="goal-info">
-                <h3>New Laptop</h3>
-                <div class="progress-bar">
-                  <div class="progress" style="width: 35%"></div>
-                </div>
-                <p>$350 <span class="of-target">of $1000</span></p>
-              </div>
-            </div>
-            <div class="goal-card">
-              <div class="goal-icon">
-                <i class="fas fa-tshirt"></i>
-              </div>
-              <div class="goal-info">
-                <h3>Summer Clothes</h3>
-                <div class="progress-bar">
-                  <div class="progress" style="width: 75%"></div>
-                </div>
-                <p>$150 <span class="of-target">of $200</span></p>
-              </div>
-            </div>
-          </div>
-        </section>
+        <!-- Online Shop Section -->
+      <section class="shop-online">
+        <div class="section-header">
+          <h2>Shop Online</h2>
+          
+        </div>
+        
+        <!-- Favorite Store Input -->
+        <div class="add-store">
+          <input type="text" id="storeInput" placeholder="Enter store URL (e.g., https://www.zalando.com)">
+          <button id="addStoreBtn">Add Store</button>
+        </div>
+        
+        <!-- Favorite Stores List -->
+        <div class="store-list" id="storeList">
+          <!-- Default Stores -->
+          <button class="store-btn" data-url="https://www.amazon.com">
+            <i class="fas fa-shopping-cart"></i> Amazon
+          </button> 
+          <button class="store-btn" data-url="https://www.finn.no">
+            <i class="fas fa-home"></i> Finn.no
+          </button>
+          <button class="store-btn" data-url="https://www.zalando.com">
+            <i class="fas fa-tshirt"></i> Zalando
+          </button>
+          <button class="store-btn" data-url="https://www.ebay.com">
+            <i class="fas fa-box"></i> eBay
+          </button>
+        </div>
+        
+        <!-- Embedded WebView -->
+        <div class="webview-container">
+          <iframe id="webView" src="" frameborder="0"></iframe>
+        </div>
+      </section>
 
-        <!-- Footer -->
+      <!-- Footer -->
 
         <footer class="footer">
           <div class="footer-container">
-            <div class="logo">KidBank</div>
-            <h2>Kid-Bank</h2>
-
-            <div class="social-links">
-              <a href="https://twitter.com/" target="_blank"
-                ><i class="fab fa-twitter"></i
-              ></a>
-              <a href="https://linkedin.com/" target="_blank"
-                ><i class="fab fa-linkedin"></i
-              ></a>
-              <a href="https://github.com/03-renate/kidbank" target="_blank"
-                ><i class="fab fa-github"></i
-              ></a>
+            <div class="logo">
+              <img src="/img/kidbank-logo1.png" alt="logo-img">
             </div>
-
+              
             <div class="members">
-              <h4>Group Members</h4>
-              <span
-                onclick="showMember('Renate', 'Frontend Developer', 'https://github.com/03-renate')"
-                >Renate</span
-              >
-              <span
-                onclick="showMember('Tubha', 'Frontend Developer', 'https://github.com/Tubhaahmad')"
-                >Tubha</span
-              >
-              <span
-                onclick="showMember('Sergiu', 'Frontend Developer', 'https://github.com/sergiu-sa')"
-                >Sergiu</span
-              >
-              <span
-                onclick="showMember('Hammad', 'Frontend Developer', 'https://github.com/Hammadniazi')"
-                >Hammad</span
-              >
+              <div class="members-title">
+                <h4>Meet our team!</h4>
+                <h4>Check out our GitHub profiles!</h4>
+              </div>
+
+              <div class="members-links">
+                <span
+                  onclick="showMember('Renate', 'Frontend Developer', 'https://github.com/03-renate')"
+                  ><i class="fab fa-github"></i> 
+                  Renate
+                </span>
+                <span
+                  onclick="showMember('Tubha', 'Frontend Developer', 'https://github.com/Tubhaahmad')"
+                  ><i class="fab fa-github"></i>Tubha
+                </span>
+                <span
+                  onclick="showMember('Sergiu', 'Frontend Developer', 'https://github.com/sergiu-sa')"
+                  ><i class="fab fa-github"></i>
+                  Sergiu
+                </span>
+                <span
+                  onclick="showMember('Hammad', 'Frontend Developer', 'https://github.com/Hammadniazi')"
+                  ><i class="fab fa-github"></i>
+                  Hammad
+                </span>
+              </div>
+              
             </div>
           </div>
         </footer>

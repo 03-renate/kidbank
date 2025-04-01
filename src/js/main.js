@@ -9,6 +9,8 @@ const restrictionReason = document.getElementById("restrictionReason");
 const sidebar = document.getElementById("sidebar");
 const toggleButton = document.getElementById("toggleSidebar");
 
+const taskCards = document.querySelectorAll(".task-card");
+
 //Navigation
 
 // Set initial state - expanded on desktop
@@ -17,9 +19,12 @@ if (window.innerWidth > 768) {
 }
 
 toggleButton.addEventListener("click", () => {
-  // Only toggle on desktop
   if (window.innerWidth > 768) {
     sidebar.classList.toggle("collapsed");
+
+    // Rotate the icon
+    const icon = toggleButton.querySelector(".toggle-icon");
+    icon.classList.toggle("rotated");
   }
 });
 
@@ -47,43 +52,77 @@ window.addEventListener("click", (e) => {
   }
 });
 
-// Test buttons functionality
-testButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    const item = button.getAttribute("data-item");
-    const category = button.getAttribute("data-category");
-    const amount = button.getAttribute("data-amount");
+//ONLINE SHOP SECTION
+// Existing JavaScript functionality
 
-    if (button.classList.contains("restricted")) {
-      // Show restriction modal
-      restrictedItem.textContent = item;
+document.addEventListener("DOMContentLoaded", () => {
+  const webView = document.getElementById("webView");
+  const webViewContainer = document.querySelector(".webview-container");
+  const storeList = document.getElementById("storeList");
+  const storeInput = document.getElementById("storeInput");
+  const addStoreBtn = document.getElementById("addStoreBtn");
 
-      // Set appropriate reason based on the item
-      if (item.includes("Energy Drink")) {
-        restrictionReason.textContent = "Age restricted product (16+)";
-      } else if (item.includes("Adult Content") || item.includes("18+")) {
-        restrictionReason.textContent = "Age restricted content (18+)";
-      } else {
-        restrictionReason.textContent =
-          "Purchase not allowed for teen accounts";
-      }
+  function openStore(url) {
+    webView.src = url;
+    webViewContainer.style.display = "block";
+  }
 
-      // Display the modal
-      restrictedModal.style.display = "flex";
-    } else {
-      // Show success notification for allowed purchases
-      showNotification(
-        `Successfully purchased ${item} for $${amount}!`,
-        "success"
-      );
+  function createStoreButton(url) {
+    const storeItem = document.createElement("div");
+    storeItem.classList.add("store-item");
 
-      // Update balance (simulating a real transaction)
-      updateBalance(-amount);
+    const storeButton = document.createElement("button");
+    storeButton.classList.add("store-btn");
+    storeButton.dataset.url = url;
+    storeButton.innerHTML = `<i class="fas fa-globe"></i> ${
+      new URL(url).hostname
+    }`;
+    storeButton.addEventListener("click", () => openStore(url));
 
-      // Add transaction to list (for simulation only)
-      addTransaction(item, category, amount);
+    // Add Remove Button
+    const removeBtn = document.createElement("button");
+    removeBtn.classList.add("remove-store-btn");
+    removeBtn.innerHTML = "❌";
+    removeBtn.addEventListener("click", () => {
+      storeItem.remove();
+      saveFavorites();
+    });
+
+    storeItem.appendChild(storeButton);
+    storeItem.appendChild(removeBtn);
+    storeList.appendChild(storeItem);
+  }
+
+  addStoreBtn.addEventListener("click", () => {
+    const url = storeInput.value.trim();
+    if (!url.startsWith("http")) {
+      alert("Please enter a valid URL (e.g., https://example.com)");
+      return;
     }
+
+    createStoreButton(url);
+    storeInput.value = "";
+    saveFavorites();
   });
+
+  function saveFavorites() {
+    const stores = Array.from(
+      storeList.querySelectorAll(".store-item .store-btn")
+    )
+      .map((btn) => btn.dataset.url)
+      .slice(4);
+
+    localStorage.setItem("favoriteStores", JSON.stringify(stores));
+  }
+
+  function loadFavorites() {
+    const savedStores = JSON.parse(
+      localStorage.getItem("favoriteStores") || "[]"
+    );
+    savedStores.forEach((url) => createStoreButton(url));
+  }
+
+  loadFavorites();
 });
 
 // Show notification function
@@ -720,31 +759,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }, 1000);
 });
 
-// import "./style.css";
-// import javascriptLogo from "./javascript.svg";
-// import viteLogo from "/vite.svg";
-// import { setupCounter } from "../counter.js";
-
-// document.querySelector("#app").innerHTML = `
-//   <div>
-//     <a href="https://vite.dev" target="_blank">
-//       <img src="${viteLogo}" class="logo" alt="Vite logo" />
-//     </a>
-//     <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-//       <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-//     </a>
-//     <h1>Hello Vite!</h1>
-//     <div class="card">
-//       <button id="counter" type="button"></button>
-//     </div>
-//     <p class="read-the-docs">
-//       Click on the Vite logo to learn more
-//     </p>
-//   </div>
-// `;
-
-// setupCounter(document.querySelector("#counter"));
-
 // Footer
 
 function showMember(name, role, github) {
@@ -764,3 +778,26 @@ window.onclick = function (event) {
     document.getElementById("pop-up-member").style.display = "none";
   }
 };
+
+// Assign Tasks
+
+taskCards.forEach((task) => {
+  task.addEventListener("click", (event) => {
+    if (event.target.tagName === "INPUT") {
+      event.stopPropagation();
+    }
+    const balanceAmountElement = document.getElementById("re_balance");
+    debugger;
+    let currentBalance = parseFloat(
+      balanceAmountElement.textContent.replace("$", "")
+    );
+    const amountText = task.querySelector(".amount").textContent;
+    const taskAmount = parseFloat(amountText.replace("$", ""));
+    currentBalance += taskAmount;
+    balanceAmountElement.textContent = `$${currentBalance.toFixed(2)}`;
+
+    setTimeout(() => {
+      task.remove();
+    }, 1000);
+  });
+});
