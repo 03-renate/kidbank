@@ -1,0 +1,7 @@
+{
+    "name": "Jane Doe",
+    "age": 14,
+    "balance": 150,
+    "currency": "USD",
+    "currencySymbol": "$"
+}

@@ -1,0 +1,72 @@
+[
+    {
+      "id": "1",
+      "title": "starbucks",
+      "ageLimit": 12,
+      "description": "drink",
+      "category": "refreshments",
+      "amount": 5.75,
+      "date": "2025-03-28",
+      "currencySymbol": "$"
+    },
+    {
+      "id": "2",
+      "title": "h&m",
+      "ageLimit": 12,
+      "description": "dress",
+      "category": "clothing",
+      "amount": 18.50,
+      "date": "2025-03-25",
+      "currencySymbol": "$"
+    },
+    {
+      "id": "3",
+      "title": "winery",
+      "ageLimit": 18,
+      "description": "wine",
+      "category": "alcohol&smoke",
+      "amount": 15.50,
+      "date": "2025-03-09",
+      "currencySymbol": "$"
+    },
+    {
+      "id": "4",
+      "title": "energy drink",
+      "ageLimit": 16,
+      "description": "drink",
+      "category": "refreshments",
+      "amount": 10.15,
+      "date": "2025-03-09",
+      "currencySymbol": "$"
+    },
+    {
+      "id": "5",
+      "title": "shoeday",
+      "ageLimit": 0,
+      "description": "shoes",
+      "category": "clothing",
+      "amount": 13.50,
+      "date": "2025-03-01",
+      "currencySymbol": "$"
+    },
+    {
+      "id": "6",
+      "title": "popeyes",
+      "ageLimit": 12,
+      "description": "food",
+      "category": "refreshments",
+      "amount": 15.25,
+      "date": "2025-02-28",
+      "currencySymbol": "$"
+    },
+    {
+      "id": "7",
+      "title": "allowence",
+      "ageLimit": 0,
+      "description": "gift",
+      "category": "gift",
+      "amount": 50,
+      "date": "2025-02-26",
+      "currencySymbol": "$"
+    }
+  ]  
