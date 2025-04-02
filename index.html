@@ -27,26 +27,27 @@
 
       <div class="sidebar" id="sidebar">
         <div class="sidebar-header">
-          <span class="logo">Pointsale</span>
+          <span class="logo">KidBank</span>
         </div>
         <ul class="menu-list">
           <li class="menu-item active">
             <i class="fas fa-home"></i> <span class="menu-text">Home</span>
           </li>
           <li class="menu-item">
-            <i class="fas fa-chart-line"></i>
+            <i class="fa-solid fa-money-check-dollar"></i>
             <span class="menu-text">Budget</span>
           </li>
           <li class="menu-item">
-            <i class="fas fa-file-invoice"></i>
+            <i class="fa-solid fa-wallet"></i>
             <span class="menu-text">Wallet</span>
           </li>
           <li class="menu-item">
             <i class="fas fa-users"></i>
-            <span class="menu-text">About/Learn</span>
+            <span class="menu-text">About</span>
           </li>
           <li class="menu-item">
-            <i class="fas fa-trash"></i> <span class="menu-text">Settings</span>
+            <i class="fa-solid fa-gear"></i> 
+            <span class="menu-text">Settings</span>
           </li>
         </ul>
 
@@ -104,7 +105,7 @@
             </button>
 
             <a href="/src/pages/barcode_scanner.html" class="action-btn pay" aria-label="Transfer Money">
-             <i class="fas fa-arrow-right-arrow-left"></i>
+             <i class="fa-solid fa-barcode"></i></i>
              <span class="scann_font">Scan</span>
             </a>
 
@@ -138,12 +139,14 @@
                   <div class="pie"></div>
 
                   <figcaption class="legends">
-                    <span>Entertainment</span>
-                    <span>Electronics</span>
-                    <span>Clothes</span>
-                    <span>Travel</span>
-                    <span>Headphones</span>
-                    <span>Sport</span>
+                    <span class="category-color-entertainment"
+                      >Entertainment</span
+                    >
+                    <span class="category-color-electronics">Electronics</span>
+                    <span class="category-color-clothes">Clothes</span>
+                    <span class="category-color-travel">Travel</span>
+
+                    <span class="category-color-sport">Sport</span>
                   </figcaption>
                 </figure>
               </div>
@@ -159,9 +162,9 @@
                   </div>
                   <div>
                     <div class="chart-container">
-                      <div class="bar" style="height: 50px">$100</div>
-                      <div class="bar" style="height: 120px">$250</div>
-                      <div class="bar" style="height: 90px">$180</div>
+                      <div class="food-bar">$100</div>
+                      <div class="entertainment-bar">$250</div>
+                      <div class="shopping-bar">$180</div>
                     </div>
                     <div class="months">
                       <span>Food</span>
@@ -293,44 +296,7 @@
           </div>
         </section>
 
-        <!-- Online Shop Section -->
-      <section class="shop-online">
-        <div class="section-header">
-          <h2>Shop Online</h2>
-          <p>Browse and shop directly inside the KidBank app.</p>
-        </div>
-        
-        <!-- Favorite Store Input -->
-        <div class="add-store">
-          <input type="text" id="storeInput" placeholder="Enter store URL (e.g., https://www.zalando.com)">
-          <button id="addStoreBtn">Add Store</button>
-        </div>
-        
-        <!-- Favorite Stores List -->
-        <div class="store-list" id="storeList">
-          <!-- Default Stores -->
-          <button class="store-btn" data-url="https://www.amazon.com">
-            <i class="fas fa-shopping-cart"></i> Amazon
-          </button> 
-          <button class="store-btn" data-url="https://www.finn.no">
-            <i class="fas fa-home"></i> Finn.no
-          </button>
-          <button class="store-btn" data-url="https://www.zalando.com">
-            <i class="fas fa-tshirt"></i> Zalando
-          </button>
-          <button class="store-btn" data-url="https://www.ebay.com">
-            <i class="fas fa-box"></i> eBay
-          </button>
-        </div>
-        
-        <!-- Embedded WebView -->
-        <div class="webview-container">
-          <iframe id="webView" src="" frameborder="0"></iframe>
-        </div>
-      </section>
-
-
-        <!-- Saving Goals 
+     
         <section class="saving-goals">
           <div class="section-header">
             <h2>Saving Goals</h2>
@@ -363,34 +329,56 @@
             </div>
           </div>
         </section>
-        -->
+        
 
+        <!-- Online Shop Section -->
+      <section class="shop-online">
+        <div class="section-header">
+          <h2>Shop Online</h2>
+          
+        </div>
+        
+        <!-- Favorite Store Input -->
+        <div class="add-store">
+          <input type="text" id="storeInput" placeholder="Enter store URL (e.g., https://www.zalando.com)">
+          <button id="addStoreBtn">Add Store</button>
+        </div>
+        
+        <!-- Favorite Stores List -->
+        <div class="store-list" id="storeList">
+          <!-- Default Stores -->
+          <button class="store-btn" data-url="https://www.amazon.com">
+            <i class="fas fa-shopping-cart"></i> Amazon
+          </button> 
+          <button class="store-btn" data-url="https://www.finn.no">
+            <i class="fas fa-home"></i> Finn.no
+          </button>
+          <button class="store-btn" data-url="https://www.zalando.com">
+            <i class="fas fa-tshirt"></i> Zalando
+          </button>
+          <button class="store-btn" data-url="https://www.ebay.com">
+            <i class="fas fa-box"></i> eBay
+          </button>
+        </div>
+        
+        <!-- Embedded WebView -->
+        <div class="webview-container">
+          <iframe id="webView" src="" frameborder="0"></iframe>
+        </div>
+      </section>
 
-        <!-- Footer -->
+      <!-- Footer -->
 
         <footer class="footer">
           <div class="footer-container">
             <div class="logo">
               <img src="/img/kidbank-logo1.png" alt="logo-img">
             </div>
-
-            <!--<div class="social-links">
-              <a href="https://twitter.com/" target="_blank"
-                ><i class="fab fa-twitter"></i
-              ></a>
-              <a href="https://linkedin.com/" target="_blank"
-                ><i class="fab fa-linkedin"></i
-              ></a>
-              <a href="https://github.com/03-renate/kidbank" target="_blank"
-                ><i class="fab fa-github"></i
-              ></a>
-            </div>-->
-
-      
+            
             <div class="members">
               <div class="members-title">
-                <h4>Meet our team!</h4>
-                <h4>Check out our GitHub profiles!</h4>
+                <div>Meet our team!</div>
+                <div>Check out our GitHub profiles!</div>
               </div>
 
               <div class="members-links">
@@ -416,6 +404,7 @@
               </div>
               
             </div>
+            
           </div>
         </footer>
 

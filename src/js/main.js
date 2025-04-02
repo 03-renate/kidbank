@@ -62,24 +62,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const storeInput = document.getElementById("storeInput");
   const addStoreBtn = document.getElementById("addStoreBtn");
 
-  // Function to open a store inside the webview
   function openStore(url) {
     webView.src = url;
     webViewContainer.style.display = "block";
   }
 
-  // Click event for default store buttons
-  document.querySelectorAll(".store-btn").forEach((button) => {
-    button.addEventListener("click", () => openStore(button.dataset.url));
-  });
-
-  // Add favorite store
-  addStoreBtn.addEventListener("click", () => {
-    const url = storeInput.value.trim();
-    if (!url.startsWith("http")) {
-      alert("Please enter a valid URL (e.g., https://example.com)");
-      return;
-    }
+  function createStoreButton(url) {
+    const storeItem = document.createElement("div");
+    storeItem.classList.add("store-item");
 
     const storeButton = document.createElement("button");
     storeButton.classList.add("store-btn");
@@ -89,37 +79,47 @@ document.addEventListener("DOMContentLoaded", () => {
     }`;
     storeButton.addEventListener("click", () => openStore(url));
 
-    storeList.appendChild(storeButton);
-    storeInput.value = "";
+    // Add Remove Button
+    const removeBtn = document.createElement("button");
+    removeBtn.classList.add("remove-store-btn");
+    removeBtn.innerHTML = "❌";
+    removeBtn.addEventListener("click", () => {
+      storeItem.remove();
+      saveFavorites();
+    });
 
-    // Save favorite stores to localStorage
+    storeItem.appendChild(storeButton);
+    storeItem.appendChild(removeBtn);
+    storeList.appendChild(storeItem);
+  }
+
+  addStoreBtn.addEventListener("click", () => {
+    const url = storeInput.value.trim();
+    if (!url.startsWith("http")) {
+      alert("Please enter a valid URL (e.g., https://example.com)");
+      return;
+    }
+
+    createStoreButton(url);
+    storeInput.value = "";
     saveFavorites();
   });
 
-  // Save favorites in localStorage
   function saveFavorites() {
-    const stores = Array.from(storeList.querySelectorAll(".store-btn"))
+    const stores = Array.from(
+      storeList.querySelectorAll(".store-item .store-btn")
+    )
       .map((btn) => btn.dataset.url)
-      .slice(4); // Skip default stores
+      .slice(4);
 
     localStorage.setItem("favoriteStores", JSON.stringify(stores));
   }
 
-  // Load favorites from localStorage
   function loadFavorites() {
     const savedStores = JSON.parse(
       localStorage.getItem("favoriteStores") || "[]"
     );
-    savedStores.forEach((url) => {
-      const storeButton = document.createElement("button");
-      storeButton.classList.add("store-btn");
-      storeButton.dataset.url = url;
-      storeButton.innerHTML = `<i class="fas fa-globe"></i> ${
-        new URL(url).hostname
-      }`;
-      storeButton.addEventListener("click", () => openStore(url));
-      storeList.appendChild(storeButton);
-    });
+    savedStores.forEach((url) => createStoreButton(url));
   }
 
   loadFavorites();
@@ -152,13 +152,13 @@ function showNotification(message, type = "info") {
   notification.style.alignItems = "center";
 
   if (type === "success") {
-    notification.style.backgroundColor = "#2dce89";
+    notification.style.backgroundColor = "#005F73";
     notification.style.color = "white";
   } else if (type === "error") {
-    notification.style.backgroundColor = "#ff396f";
+    notification.style.backgroundColor = "#002432";
     notification.style.color = "white";
   } else {
-    notification.style.backgroundColor = "#5e72e4";
+    notification.style.backgroundColor = "#94D2BD";
     notification.style.color = "white";
   }
 
@@ -272,7 +272,7 @@ document
     addMoneyModal.innerHTML = `
         <div class="modal-content">
             <span class="close-add-modal">&times;</span>
-            <div class="modal-icon" style="background-color: #2dce89;">
+            <div class="modal-icon" style="background-color: #94D2BD;">
                 <i class="fas fa-wallet"></i>
             </div>
             <h2>Add Money</h2>
@@ -308,22 +308,22 @@ document
 
     amountOptions.forEach((option) => {
       option.style.padding = "10px";
-      option.style.border = "2px solid #5e72e4";
+      option.style.border = "2px solid #EE9B00";
       option.style.borderRadius = "8px";
       option.style.background = "none";
-      option.style.color = "#5e72e4";
+      option.style.color = "#EE9B00";
       option.style.fontWeight = "500";
       option.style.cursor = "pointer";
       option.style.transition = "all 0.2s ease";
 
       option.addEventListener("mouseover", () => {
-        option.style.backgroundColor = "#5e72e4";
+        option.style.backgroundColor = "#EE9B00";
         option.style.color = "white";
       });
 
       option.addEventListener("mouseout", () => {
         option.style.backgroundColor = "transparent";
-        option.style.color = "#5e72e4";
+        option.style.color = "#EE9B00";
       });
 
       option.addEventListener("click", () => {
@@ -418,7 +418,7 @@ document.querySelector(".add-goal").addEventListener("click", () => {
   addGoalModal.innerHTML = `
         <div class="modal-content">
             <span class="close-goal-modal">&times;</span>
-            <div class="modal-icon" style="background-color: #825ee4;">
+            <div class="modal-icon" style="background-color: #94D2BD;">
                 <i class="fas fa-piggy-bank"></i>
             </div>
             <h2>Add Savings Goal</h2>
@@ -510,7 +510,7 @@ document.querySelector(".add-goal").addEventListener("click", () => {
     option.style.color = "#666";
 
     if (option.classList.contains("selected")) {
-      option.style.backgroundColor = "#825ee4";
+      option.style.backgroundColor = "#EE9B00";
       option.style.color = "white";
     }
 
@@ -524,7 +524,7 @@ document.querySelector(".add-goal").addEventListener("click", () => {
 
       // Add selected class to clicked option
       option.classList.add("selected");
-      option.style.backgroundColor = "#825ee4";
+      option.style.backgroundColor = "#EE9B00";
       option.style.color = "white";
 
       // Update hidden input
@@ -620,7 +620,7 @@ function showAddToGoalModal(
   addToGoalModal.innerHTML = `
         <div class="modal-content">
             <span class="close-add-to-goal-modal">&times;</span>
-            <div class="modal-icon" style="background-color: #825ee4;">
+            <div class="modal-icon" style="background-color: #EE9B00;">
                 <i class="fas fa-piggy-bank"></i>
             </div>
             <h2>Add to "${goalName}"</h2>
@@ -758,31 +758,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }, 1000);
 });
-
-// import "./style.css";
-// import javascriptLogo from "./javascript.svg";
-// import viteLogo from "/vite.svg";
-// import { setupCounter } from "../counter.js";
-
-// document.querySelector("#app").innerHTML = `
-//   <div>
-//     <a href="https://vite.dev" target="_blank">
-//       <img src="${viteLogo}" class="logo" alt="Vite logo" />
-//     </a>
-//     <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-//       <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-//     </a>
-//     <h1>Hello Vite!</h1>
-//     <div class="card">
-//       <button id="counter" type="button"></button>
-//     </div>
-//     <p class="read-the-docs">
-//       Click on the Vite logo to learn more
-//     </p>
-//   </div>
-// `;
-
-// setupCounter(document.querySelector("#counter"));
 
 // Footer
 
