@@ -584,6 +584,18 @@ span.add-goal {
 }
 
 /* TOUBHA - RECENT TRANSACTIONS */
+:root {
+  --primary-color: #5e72e4;
+  --refreshments-color: #f87060;
+  --gift-color: #ffa44b;
+  --clothing-color: #07beb8;
+  --error-color: #ff396f;
+  --text-dark: #333;
+  --text-light: #999;
+  --success-color: #2dce89;
+}
+
+/* Container layout */
 .transactions-monthly-overview-container {
   display: flex;
   flex-direction: column;
@@ -595,19 +607,47 @@ span.add-goal {
   @media (min-width: 900px) {
     flex-direction: row;
     align-items: flex-start;
+    gap: 2rem;
   }
 }
 
-.recent-transactions {
+/* Recent Transactions Section */
+.recent-transactions{
   width: 100%;
+  max-height: 414px; /* Matches the pie chart */
+  text-transform: capitalize; /* Transforms all text to uppercase */
+
+}
+
+#js-transactions {
+  width: 100%;
+  max-height: 366px; /* Matches the pie chart */
+  overflow-y: auto; /* Enables scroll when necessary */
+  padding-right: 10px;
   max-height: 420px; /* Adjust height as needed */
   overflow: hidden; /* Prevent overflow from affecting layout */
+
 
   @media (min-width: 900px) {
     max-width: 800px;
   }
 }
 
+
+/* Fix for scrollbar only appearing when needed */
+#js-transactions::-webkit-scrollbar {
+  width: 6px;
+}
+
+#js-transactions::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius: 6px;
+}
+
+#js-transactions::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 6px;
+  
 .transaction-list {
   display: flex;
   flex-direction: column;
@@ -638,6 +678,7 @@ span.add-goal {
   background-color: #f5f5f5;
 }
 
+/* Transaction Cards */
 .transaction-card {
   background-color: var(--container-color);
   border-radius: var(--border-radius-containers);
@@ -645,8 +686,21 @@ span.add-goal {
   display: flex;
   align-items: center;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
+.transaction-card:not(:first-child) {
+  margin-top: 1rem;
+}
+
+
+
+.transaction-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Icons */
 .transaction-icon {
   width: 50px;
   height: 50px;
@@ -657,8 +711,25 @@ span.add-goal {
   margin-right: 15px;
   font-size: 1.3rem;
   color: white;
-  background-color: #5e72e4;
+  background-color: var(--primary-color);
 }
+
+
+/* Category-specific colors */
+.transaction-icon.refreshments {
+  background-color: var(--refreshments-color);
+}
+
+.transaction-icon.gift {
+  background-color: var(--gift-color);
+}
+
+.transaction-icon.clothing {
+  background-color: var(--clothing-color);
+}
+
+.transaction-icon.error {
+  background-color: var(--error-color);
 
 .transaction-icon.spotify {
   background-color: #94d2bd;
@@ -680,11 +751,20 @@ span.add-goal {
   background-color: #4a9998;
 }
 
+/* Transaction Info */
 .transaction-info {
   flex: 1;
 }
 
 .transaction-info h3 {
+
+  font-size: 1rem;
+  color: var(--text-dark);
+}
+
+.transaction-info p {
+  font-size: 0.85rem;
+  color: var(--text-light);
   font-size: var(--h3-size);
   color: #002432;
 }
@@ -694,25 +774,32 @@ span.add-goal {
   color: #999;
 }
 
+/* Transaction Amount */
 .transaction-amount {
   text-align: right;
 }
 
 .amount-spent {
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 500;
-  color: #333;
+  color: var(--text-dark);
 }
 
+
+/* Positive transactions (money received) */
+.transaction-amount.positive .amount-spent {
+  color: var(--success-color);
 .transaction-amount.positive .amount-received {
   color: #94d2bd;
   font-weight: 500;
 }
 
+/* Date Styling */
 .transaction-date {
   font-size: 0.8rem;
-  color: #999;
+  color: var(--text-light);
 }
+
 
 .status {
   color: #94d2bd;
