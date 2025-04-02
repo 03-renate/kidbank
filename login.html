@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>kidFinance - Secure Login</title>
+    <link rel="stylesheet" href="./src/assets/login.css" />
+    <script src="./src/js/login.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="toggle-buttons">
+        <button class="toggle-btn active" data-target="kid-login">
+          Kid Login
+        </button>
+        <button class="toggle-btn" data-target="parent-login">
+          Parent Login
+        </button>
+      </div>
+
+      <!-- kid Login Section -->
+      <div id="kid-login" class="form-section active">
+        <form id="kid-login-form">
+          <div class="form-group">
+            <label for="kid-username">Username</label>
+            <input type="text" id="kid-username" required />
+            <div id="kid-username-error" class="error-message">
+              User name must be at least 3 characters
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="kid-password">Password</label>
+            <input type="password" id="kid-password" required />
+            <div id="kid-password-error" class="error-message">
+              Password must be at least 6 characters
+            </div>
+          </div>
+          <button type="submit" class="submit-btn">Log In</button>
+          <div class="switch-form">
+            New to KidBank App?
+            <a href="#" id="kid-register-link">Create Account</a>
+          </div>
+        </form>
+      </div>
+
+      <!-- Parent Login Section -->
+
+      <div id="parent-login" class="form-section">
+        <form id="parent-login-form">
+          <div class="form-group">
+            <label for="parent-email">Email</label>
+            <input type="email" id="parent-email" required />
+            <div id="parent-email-error" class="error-message">
+              Please enter a valid email
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="parent-password">Password</label>
+            <input type="password" id="parent-password" required />
+            <div id="parent-password-error" class="error-message">
+              Password must be at least 8 characters
+            </div>
+          </div>
+          <button type="submit" class="submit-btn">Log In</button>
+          <div class="switch-form">
+            Need a Parent Account?
+            <a href="#" id="parent-register-link">Register Here</a>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!--Pop for Registration -->
+
+    <div id="registration-pop" class="pop">
+      <div class="pop-content">
+        <span class="close-pop">&times;</span>
+        <h2 id="pop-title">Create Account</h2>
+        <form id="registration-form">
+          <div class="form-group">
+            <label id="account-type-label">Username</label>
+            <input type="text" id="register-username" required />
+            <div id="register-username-error" class="error-message">
+              Username must be at least 3 characters
+            </div>
+          </div>
+          <div class="form-group">
+            <label id="email-label" style="display: none">Email</label>
+            <input type="email" id="register-email" style="display: none" />
+            <div id="register-email-error" class="error-message">
+              Please enter a valid email
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" id="register-password" required />
+            <div id="register-password-error" class="error-message">
+              Password must be at least 6 characters
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Confirm Password</label>
+            <input type="password" id="register-confirm-password" required />
+            <div id="register-confirm-password-error" class="error-message">
+              Passwords do not match
+            </div>
+          </div>
+          <button type="submit" class="submit-btn">Create Account</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
