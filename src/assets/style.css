@@ -2115,6 +2115,8 @@ iframe {
 .members span:hover {
   background-color: #005f73;
   color: #94d2bd;
+  padding-left: 2px;
+  padding-right: 2px;
 }
 
 /* Pop-up */
