@@ -336,40 +336,62 @@
         
 
         <!-- Online Shop Section -->
-      <section class="shop-online">
-        <div class="section-header">
-          <h2>Shop Online</h2>
-          
+       <section class="store-section">
+      <div class="store-header">
+        <h2>Shop Online</h2>
+      </div>
+
+      <div class="add-shop-form">
+        <input
+          type="text"
+          id="shopUrlInput"
+          placeholder="Enter store URL (e.g., https://www.example.com)"
+        />
+        <button id="addShopButton">Add Store</button>
+      </div>
+
+      <div class="shop-list" id="shopList">
+        <button
+          class="shop-card"
+          data-default="true"
+          data-url="https://www.aliexpress.com"
+        >
+          <i class="fa-solid fa-box-open"></i> AliExpress
+        </button>
+        <button
+          class="shop-card"
+          data-default="true"
+          data-url="https://www.nelly.com"
+        >
+          <i class="fa-solid fa-shirt"></i> Nelly
+        </button>
+        <button class="shop-card" data-default="true" data-widget="elfsight">
+          <i class="fa-solid fa-store"></i> KB Food
+        </button>
+      </div>
+
+      <div class="shop-preview-container" id="shopPreviewArea">
+        <div class="loading-overlay" id="previewLoader">Loading...</div>
+        <button id="closePreviewBtn" class="close-btn">Close</button>
+        <iframe id="shopIframe" style="display: none"></iframe>
+        <div
+          id="widgetContainer"
+          style="display: none; height: 100%; overflow: auto"
+        >
+          <script
+            src="https://static.elfsight.com/platform/platform.js"
+            async
+          ></script>
+          <div
+            class="elfsight-app-2540c184-0568-4fc7-9098-3c9411ca4165"
+            data-elfsight-app-lazy
+          ></div>
         </div>
-        
-        <!-- Favorite Store Input -->
-        <div class="add-store">
-          <input type="text" id="storeInput" placeholder="Enter store URL (e.g., https://www.zalando.com)">
-          <button id="addStoreBtn">Add Store</button>
+        <div id="shopFallbackMessage" class="shop-fallback-msg" style="display: none">
+          This store cannot be viewed inside the app. Opening it in a new tab.
         </div>
-        
-        <!-- Favorite Stores List -->
-        <div class="store-list" id="storeList">
-          <!-- Default Stores -->
-          <button class="store-btn" data-url="https://www.amazon.com">
-            <i class="fas fa-shopping-cart"></i> Amazon
-          </button> 
-          <button class="store-btn" data-url="https://www.finn.no">
-            <i class="fas fa-home"></i> Finn.no
-          </button>
-          <button class="store-btn" data-url="https://www.zalando.com">
-            <i class="fas fa-tshirt"></i> Zalando
-          </button>
-          <button class="store-btn" data-url="https://www.ebay.com">
-            <i class="fas fa-box"></i> eBay
-          </button>
-        </div>
-        
-        <!-- Embedded WebView -->
-        <div class="webview-container">
-          <iframe id="webView" src="" frameborder="0"></iframe>
-        </div>
-      </section>
+      </div>
+    </section>
 
       <!-- Footer -->
 

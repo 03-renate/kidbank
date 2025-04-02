@@ -53,73 +53,122 @@ window.addEventListener("click", (e) => {
 });
 
 //ONLINE SHOP SECTION
-// Existing JavaScript functionality
-
 document.addEventListener("DOMContentLoaded", () => {
-  const webView = document.getElementById("webView");
-  const webViewContainer = document.querySelector(".webview-container");
-  const storeList = document.getElementById("storeList");
-  const storeInput = document.getElementById("storeInput");
-  const addStoreBtn = document.getElementById("addStoreBtn");
+  const shopIframe = document.getElementById("shopIframe");
+  const previewLoader = document.getElementById("previewLoader");
+  const widgetContainer = document.getElementById("widgetContainer");
+  const shopList = document.getElementById("shopList");
+  const shopUrlInput = document.getElementById("shopUrlInput");
+  const addShopButton = document.getElementById("addShopButton");
+  const shopPreviewArea = document.getElementById("shopPreviewArea");
+  const closePreviewBtn = document.getElementById("closePreviewBtn");
+  const shopFallbackMessage = document.getElementById("shopFallbackMessage");
 
-  function openStore(url) {
-    webView.src = url;
-    webViewContainer.style.display = "block";
+  function openShop(url, isWidget = false) {
+    previewLoader.style.display = "block";
+    shopFallbackMessage.style.display = "none";
+    shopPreviewArea.classList.add("active");
+    shopPreviewArea.scrollIntoView({ behavior: "smooth" });
+
+    if (isWidget) {
+      shopIframe.style.display = "none";
+      shopIframe.src = "";
+      widgetContainer.style.display = "block";
+      previewLoader.style.display = "none";
+      return;
+    }
+
+    widgetContainer.style.display = "none";
+    shopIframe.style.display = "block";
+    shopIframe.src = url;
+
+    let fallbackTimer = setTimeout(() => {
+      previewLoader.style.display = "none";
+      shopFallbackMessage.style.display = "block";
+      shopIframe.style.display = "none";
+      window.open(url, "_blank");
+    }, 4000);
+
+    shopIframe.onload = () => {
+      clearTimeout(fallbackTimer);
+      previewLoader.style.display = "none";
+    };
   }
 
-  function createStoreButton(url) {
-    const storeItem = document.createElement("div");
-    storeItem.classList.add("store-item");
+  closePreviewBtn.addEventListener("click", () => {
+    shopPreviewArea.classList.remove("active");
+    shopIframe.src = "";
+    widgetContainer.style.display = "none";
+    shopIframe.style.display = "none";
+    shopFallbackMessage.style.display = "none";
+  });
 
-    const storeButton = document.createElement("button");
-    storeButton.classList.add("store-btn");
-    storeButton.dataset.url = url;
-    storeButton.innerHTML = `<i class="fas fa-globe"></i> ${
-      new URL(url).hostname
-    }`;
-    storeButton.addEventListener("click", () => openStore(url));
-
-    // Add Remove Button
-    const removeBtn = document.createElement("button");
-    removeBtn.classList.add("remove-store-btn");
-    removeBtn.innerHTML = "❌";
-    removeBtn.addEventListener("click", () => {
-      storeItem.remove();
-      saveFavorites();
-    });
-
-    storeItem.appendChild(storeButton);
-    storeItem.appendChild(removeBtn);
-    storeList.appendChild(storeItem);
+  function attachClick(button) {
+    if (button.dataset.widget === "elfsight") {
+      button.addEventListener("click", () => openShop("", true));
+    } else {
+      button.addEventListener("click", () => openShop(button.dataset.url));
+    }
   }
 
-  addStoreBtn.addEventListener("click", () => {
-    const url = storeInput.value.trim();
+  function attachDelete(button) {
+    const deleteBtn = button.querySelector(".remove-shop-btn");
+    if (deleteBtn) {
+      deleteBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        button.remove();
+        saveFavorites();
+      });
+    }
+  }
+
+  document.querySelectorAll(".shop-card").forEach(attachClick);
+
+  addShopButton.addEventListener("click", () => {
+    const url = shopUrlInput.value.trim();
     if (!url.startsWith("http")) {
       alert("Please enter a valid URL (e.g., https://example.com)");
       return;
     }
 
-    createStoreButton(url);
-    storeInput.value = "";
+    const shopButton = document.createElement("button");
+    shopButton.classList.add("shop-card");
+    shopButton.dataset.url = url;
+    shopButton.innerHTML = `<i class="fa-solid fa-globe"></i> ${
+      new URL(url).hostname
+    } <button class="remove-shop-btn">&times;</button>`;
+
+    attachClick(shopButton);
+    attachDelete(shopButton);
+
+    shopList.appendChild(shopButton);
+    shopUrlInput.value = "";
+
     saveFavorites();
   });
 
   function saveFavorites() {
-    const stores = Array.from(
-      storeList.querySelectorAll(".store-item .store-btn")
-    )
-      .map((btn) => btn.dataset.url)
-      .slice(4);
-
-    localStorage.setItem("favoriteStores", JSON.stringify(stores));
+    const shops = Array.from(shopList.querySelectorAll(".shop-card"))
+      .filter((btn) => !btn.dataset.default)
+      .map((btn) => btn.dataset.url);
+    localStorage.setItem("favoriteShops", JSON.stringify(shops));
   }
 
   function loadFavorites() {
-    const savedStores = JSON.parse(
-      localStorage.getItem("favoriteStores") || "[]"
+    const savedShops = JSON.parse(
+      localStorage.getItem("favoriteShops") || "[]"
     );
-    savedStores.forEach((url) => createStoreButton(url));
+    savedShops.forEach((url) => {
+      const shopButton = document.createElement("button");
+      shopButton.classList.add("shop-card");
+      shopButton.dataset.url = url;
+      shopButton.innerHTML = `<i class="fa-solid fa-globe"></i> ${
+        new URL(url).hostname
+      } <button class="remove-shop-btn">&times;</button>`;
+      attachClick(shopButton);
+      attachDelete(shopButton);
+      shopList.appendChild(shopButton);
+    });
   }
 
   loadFavorites();
