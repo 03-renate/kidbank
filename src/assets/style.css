@@ -1381,6 +1381,11 @@ iframe {
   background-color: #f9f9f9;
   font-size: 0.8rem;
 }
+.memberImage {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
 
 /* Responsive adjustments */
 @media (min-width: 485px) {
@@ -1451,7 +1456,7 @@ iframe {
   display: inline-block;
   margin-top: 10px;
   padding: 8px 16px;
-  background: #222;
+  background: linear-gradient(-120deg, #ee9b00, #4a9998, #002432);
   color: #fff;
   text-decoration: none;
   border-radius: 5px;
@@ -1459,7 +1464,7 @@ iframe {
 }
 
 .pop-up-content a:hover {
-  background: #444;
+  background: #005f73;
 }
 
 .close-btn {

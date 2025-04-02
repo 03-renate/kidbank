@@ -761,11 +761,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Footer
 
-function showMember(name, role, github) {
+function showMember(image, name, role, github) {
+  document.getElementById("memberImage").src = image;
   document.getElementById("memberName").innerText = name;
   document.getElementById("memberRole").innerText = role;
   document.getElementById("memberGithub").href = github;
-  document.getElementById("memberGithub").innerText = `GitHub: ${github}`;
+  document.getElementById("memberGithub").innerText = ` ${github}`;
   document.getElementById("pop-up-member").style.display = "block";
 }
 
