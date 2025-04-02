@@ -339,37 +339,6 @@ body {
   gap: 1rem;
 }
 
-/* HERO CARD INFORMATION */
-.hero-right {
-  flex: 2;
-  max-height: 250px;
-  height: 250px;
-  width: 100%;
-  width: auto;
-  border-radius: var(--border-radius-containers);
-  padding: 25px;
-  color: #f9f9f9;
-  background: linear-gradient();
-  animation: bg 12s ease infinite;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-
-  background: linear-gradient(-120deg, #94d2bd, #4a9998, #002432);
-  background-size: 200% 200%;
-  animation: move-bg 15s ease infinite;
-}
-
-@keyframes move-bg {
-  0% {
-    background-position: 30% 40%;
-  }
-  50% {
-    background-position: 80% 0%;
-  }
-  100% {
-    background-position: 30% 40%;
-  }
-}
-
 .card-header {
   display: flex;
   justify-content: space-between;
@@ -1020,7 +989,7 @@ body {
   animation: bg 12s ease infinite;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 
-  background: linear-gradient(-120deg, #ee9b00, #4a9998, #002432);
+  background: linear-gradient(-120deg, #94d2bd, #4a9998, #002432);
   background-size: 200% 200%;
   animation: move-bg 15s ease infinite;
 }
