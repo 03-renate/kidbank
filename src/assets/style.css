@@ -2219,12 +2219,15 @@ iframe {
   color: #999;
 }
 .task-amount {
+  display: flex;
+  flex-direction: row;
   text-align: right;
 }
 .amount {
   font-size: 0.95rem;
   font-weight: 500;
   color: bl;
+  padding-right: 0.5rem;
 }
 .color-icon-trash {
   background-color: #b3cea3;
