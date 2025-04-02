@@ -1243,8 +1243,8 @@ color: #5e72e4;
 
 .recent-transactions {
   width: 100%;
-  max-height: 420px; /* Adjust height as needed */
-  overflow: hidden; /* Prevent overflow from affecting layout */
+  max-height: 420px;
+  overflow: hidden;
 
   @media (min-width: 900px) {
     max-width: 800px;
@@ -1255,17 +1255,17 @@ color: #5e72e4;
   display: flex;
   flex-direction: column;
   gap: 15px;
-  max-height: 408px; /* Set a fixed height */
-  overflow-y: auto; /* Enable vertical scrolling */
-  padding-right: 10px; /* Prevent content from cutting off */
-  padding-bottom: 20px; /* Ensures last item is fully visible */
-  box-sizing: border-box; /* Prevents layout issues */
+  max-height: 408px;
+  overflow-y: auto;
+  padding-right: 10px;
+  padding-bottom: 20px;
+  box-sizing: border-box;
 }
 
 .transaction-list::after {
   content: "";
   display: block;
-  height: 20px; /* Adjust to match the height of a transaction */
+  height: 20px;
 }
 
 .transaction-list::-webkit-scrollbar {
@@ -1471,31 +1471,31 @@ h4 {
 .legends span::before {
   content: "";
   display: inline-block;
-  width: 8px; /* Dot size */
+  width: 8px;
   height: 8px;
   border-radius: 50%;
-  margin-right: 5px; /* Space between dot and text */
+  margin-right: 5px;
 }
 
 /* Different colors for each category */
 .category-color-entertainment::before {
-  background-color: #002432; /* Orange */
+  background-color: #002432;
 }
 
 .category-color-electronics::before {
-  background-color: #005f73; /* Blue */
+  background-color: #005f73;
 }
 
 .category-color-clothes::before {
-  background-color: #4a9998; /* Purple */
+  background-color: #4a9998;
 }
 
 .category-color-travel::before {
-  background-color: #b3cea3; /* Green */
+  background-color: #b3cea3;
 }
 
 .category-color-sport::before {
-  background-color: #ee9b00; /* Red */
+  background-color: #ee9b00;
 }
 
 .back {
@@ -1536,7 +1536,7 @@ h4 {
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  flex-wrap: wrap; /* Ensures responsiveness */
+  flex-wrap: wrap;
   max-width: 90%;
   min-width: 230px;
   height: 250px;
@@ -1553,7 +1553,7 @@ h4 {
 .entertainment-bar,
 .shopping-bar {
   flex: 1;
-  min-width: 50px; /* Ensures bars don’t shrink too much */
+  min-width: 50px;
   max-width: 100px;
   text-align: center;
   color: white;
@@ -1917,7 +1917,7 @@ iframe {
 .pay-btn-circle {
   width: 50px;
   height: 50px;
-  background: linear-gradient(120deg, #5e72e4, #825ee4);
+  background: linear-gradient(120deg, #94d2bd, #005f73);
   border-radius: 50%;
   display: flex;
   align-items: center;
