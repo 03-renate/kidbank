@@ -1715,7 +1715,7 @@ h4 {
 
 #addShopButton {
   padding: 10px 16px;
-  background: #5e72e4;
+  background: #ee9b00;
   color: white;
   border: none;
   border-radius: 6px;
@@ -1724,7 +1724,7 @@ h4 {
 }
 
 #addShopButton:hover {
-  background: #3b50c0;
+  background: #94d2bd;
 }
 
 .shop-list {
@@ -1739,7 +1739,8 @@ h4 {
   align-items: center;
   gap: 8px;
   padding: 10px 16px;
-  background: #f9faff;
+  background: var(--nav-icon-after-hover);
+  color: white;
   border: 1px solid #ddd;
   border-radius: 8px;
   cursor: pointer;
@@ -1748,7 +1749,7 @@ h4 {
 }
 
 .shop-card:hover {
-  background: #e0e8ff;
+  background: #94d2bd;
 }
 
 .remove-shop-btn {
