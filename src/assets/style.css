@@ -32,9 +32,9 @@
   --h3-color: #002432;
   --h4-color: #002432;
 
-  --refreshments-color: #ee9b00;
+  --refreshments-color: #005f73;
   --gift-color: #07beb8;
-  --clothing-color: #4a9998;
+  --clothing-color: #b3cea3;
   --error-color: #ff396f;
   --text-dark: #333;
   --text-light: #999;
@@ -620,7 +620,6 @@ body {
   margin-right: 15px;
   font-size: 1.3rem;
   color: white;
-  background-color: var(--primary-color);
 }
 
 /* Category-specific colors */
@@ -636,9 +635,6 @@ body {
   background-color: var(--clothing-color);
 }
 
-.transaction-icon.error {
-  background-color: var(--error-color);
-}
 
 /* Transaction Info */
 .transaction-info {
