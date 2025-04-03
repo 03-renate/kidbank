@@ -65,11 +65,8 @@ body {
   height: 100vh;
   background-color: #fff;
   border-right: 1px solid #e1e4e8;
-
   position: fixed;
-
   position: absolute;
-
   top: 0;
   left: 0;
   display: flex;
@@ -121,13 +118,6 @@ body {
   transform: rotate(180deg);
 }
 
-/* Hide the tyext when it colapsed */
-.sidebar.collapsed .logo,
-.sidebar.collapsed .menu-item span,
-.sidebar.collapsed .user-profile {
-  display: none;
-}
-
 /* Make menu icons center-alligned when collapsed */
 .sidebar.collapse .menu-item {
   justify-content: center;
@@ -135,12 +125,6 @@ body {
   margin: 0;
 }
 
-.sidebar .menu-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 12px 16px;
-}
 
 /* Toggle button */
 .toggle-button {
@@ -155,9 +139,6 @@ body {
   transition: all 0.3s ease;
 }
 
-.sidebar.collapsed + .toggle-button .toggle-icon {
-  transform: rotate(180deg);
-}
 
 .sidebar-header {
   display: flex;
@@ -173,6 +154,7 @@ body {
   font-size: var(--p-size-large);
   color: #1a202c;
   transition: opacity 0.3s ease;
+  flex: 0 1 auto;
 }
 
 .collapsed .logo {
@@ -577,13 +559,14 @@ body {
 
 /* Transaction Cards */
 .transaction-card {
-  background-color: white;
-  border-radius: 12px;
   padding: 15px;
   display: flex;
   align-items: center;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  background-color: var(--container-color);
+  border-radius: var(--border-radius-containers);
+
 }
 
 .transaction-card:not(:first-child) {
@@ -599,13 +582,14 @@ body {
 .transaction-icon {
   width: 50px;
   height: 50px;
-  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-right: 15px;
   font-size: 1.3rem;
   color: white;
+  border-radius: 12px;
+  background-color: #5e72e4;
 }
 
 /* Category-specific colors */
@@ -619,22 +603,6 @@ body {
 
 .transaction-icon.clothing {
   background-color: var(--clothing-color);
-}
-
-
-/* Transaction Info */
-.transaction-info {
-  flex: 1;
-}
-
-.transaction-info h3 {
-  font-size: 1rem;
-  color: var(--text-dark);
-}
-
-.transaction-info p {
-  font-size: 0.85rem;
-  color: var(--text-light);
 }
 
 /* Transaction Amount */
@@ -706,25 +674,11 @@ body {
   width: 50px; /* Ensure the width shrinks */
 }
 
-/* Hide the tyext when it colapsed */
-.sidebar.collapsed .logo,
-.sidebar.collapsed .menu-item span,
-.sidebar.collapsed .user-profile {
-  display: none;
-}
-
 /* Make menu icons center-alligned when collapsed */
 .sidebar.collapse .menu-item {
   justify-content: center;
   display: none;
   margin: 0;
-}
-
-.sidebar .menu-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 12px 16px;
 }
 
 /* Toggle button */
@@ -740,29 +694,12 @@ body {
   transition: all 0.3s ease;
 }
 
-.sidebar.collapsed + .toggle-button .toggle-icon {
-  transform: rotate(180deg);
-}
-
-/* Hide the tyext when it colapsed */
-.sidebar.collapsed .logo,
-.sidebar.collapsed .menu-item span,
-.sidebar.collapsed .user-profile {
-  display: none;
-}
 
 /* Make menu icons center-alligned when collapsed */
 .sidebar.collapse .menu-item {
   justify-content: center;
   display: none;
   margin: 0;
-}
-
-.sidebar .menu-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 12px 16px;
 }
 
 /* Toggle button */
@@ -889,9 +826,6 @@ body {
   transform: rotate(180deg);
 }
 
-.sidebar.collapsed + .main-content {
-  margin-left: 60px;
-}
 
 .sidebar.collapsed ~ .main-content {
   margin-left: 50px; /* Reduce gap when sidebar is collapsed */
@@ -924,14 +858,6 @@ body {
 }
 /*RENATE - PROFILE - END*/
 
-/* RENATE - HERO SECTION - START */
-.hero-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-}
-
 /* HERO CARD INFORMATION */
 .hero-right {
   flex: 2;
@@ -963,14 +889,6 @@ body {
   }
 }
 
-.card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 15px;
-  font-size: var(--p-size-medium);
-}
-
 .card-icon {
   border: none;
   border-radius: 50%;
@@ -978,21 +896,6 @@ body {
   color: #f9f9f9;
   font-size: 1.2rem;
   cursor: pointer;
-}
-
-.balance-amount {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-}
-
-.currency {
-  font-size: var(--h1-size);
-  margin-right: 5px;
-}
-
-#blurred-currency {
-  transition: filter 0.3s ease;
 }
 
 /* HERO-LEFT BTNS */
@@ -1053,21 +956,6 @@ body {
   }
 }
 
-/* HERO TABLET/PHONE */
-@media only screen and (max-width: 430px) {
-  .hero-container {
-    flex-direction: column;
-  }
-
-  .hero-right {
-    width: 100%;
-  }
-
-  .hero-left {
-    width: 100%;
-    display: flex;
-  }
-}
 
 /* Section Headers */
 .section-header {
@@ -1238,28 +1126,6 @@ color: #5e72e4;
   background-color: #f5f5f5;
 }
 
-.transaction-card {
-  background-color: var(--container-color);
-  border-radius: var(--border-radius-containers);
-  padding: 15px;
-  display: flex;
-  align-items: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-}
-
-.transaction-icon {
-  width: 50px;
-  height: 50px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 15px;
-  font-size: 1.3rem;
-  color: white;
-  background-color: #5e72e4;
-}
-
 .transaction-icon.spotify {
   background-color: #94d2bd;
 }
@@ -1294,24 +1160,10 @@ color: #5e72e4;
   color: #999;
 }
 
-.transaction-amount {
-  text-align: right;
-}
-
 .amount-spent {
   font-size: 0.95rem;
   font-weight: 500;
   color: #333;
-}
-
-.transaction-amount.positive .amount-received {
-  color: #94d2bd;
-  font-weight: 500;
-}
-
-.transaction-date {
-  font-size: 0.8rem;
-  color: #999;
 }
 
 .status {
@@ -1939,10 +1791,6 @@ iframe {
   @media (width>970px) {
     flex-direction: row;
   }
-}
-
-.logo {
-  flex: 0 1 auto;
 }
 
 .logo img {
