@@ -542,8 +542,8 @@
           "allowedProducts",
           JSON.stringify(allowedProducts)
         );
-
-        const checkoutURL = `https://yourwebsite.com/checkout.html?products=${encodeURIComponent(
+// CHANGE https://kidbank.com with the website URL after deploiment
+        const checkoutURL = `https://kidbank.com/checkout.html?products=${encodeURIComponent(
           JSON.stringify(allowedProducts)
         )}`;
         qrContainer.innerHTML = `<h3>Scan this QR code to proceed to payment</h3>`;
