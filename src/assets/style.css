@@ -125,7 +125,6 @@ body {
   margin: 0;
 }
 
-
 /* Toggle button */
 .toggle-button {
   position: fixed;
@@ -138,7 +137,6 @@ body {
   cursor: pointer;
   transition: all 0.3s ease;
 }
-
 
 .sidebar-header {
   display: flex;
@@ -566,7 +564,6 @@ body {
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
   background-color: var(--container-color);
   border-radius: var(--border-radius-containers);
-
 }
 
 .transaction-card:not(:first-child) {
@@ -693,7 +690,6 @@ body {
   cursor: pointer;
   transition: all 0.3s ease;
 }
-
 
 /* Make menu icons center-alligned when collapsed */
 .sidebar.collapse .menu-item {
@@ -826,7 +822,6 @@ body {
   transform: rotate(180deg);
 }
 
-
 .sidebar.collapsed ~ .main-content {
   margin-left: 50px; /* Reduce gap when sidebar is collapsed */
 }
@@ -955,7 +950,6 @@ body {
     transform: translateY(0);
   }
 }
-
 
 /* Section Headers */
 .section-header {
@@ -1494,7 +1488,6 @@ h4 {
   cursor: pointer;
   margin-top: 15px;
 }
-
 
 /* ONLINE SHOPE SECTION  */
 
