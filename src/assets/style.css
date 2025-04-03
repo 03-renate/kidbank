@@ -32,9 +32,9 @@
   --h3-color: #002432;
   --h4-color: #002432;
 
-  --refreshments-color: #ee9b00;
-  --gift-color: #07beb8;
-  --clothing-color: #4a9998;
+  --refreshments-color: #94d2bd;
+  --gift-color: #005f73;
+  --clothing-color: #b3cea3;
   --error-color: #ff396f;
   --text-dark: #333;
   --text-light: #999;
@@ -620,7 +620,6 @@ body {
   margin-right: 15px;
   font-size: 1.3rem;
   color: white;
-  background-color: var(--primary-color);
 }
 
 /* Category-specific colors */
@@ -636,9 +635,6 @@ body {
   background-color: var(--clothing-color);
 }
 
-.transaction-icon.error {
-  background-color: var(--error-color);
-}
 
 /* Transaction Info */
 .transaction-info {
@@ -1686,49 +1682,6 @@ h4 {
   margin-top: 15px;
 }
 
-/*Saving Goals*/
-.goals-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 15px;
-  margin-bottom: 25px;
-}
-
-.goal-card {
-  background-color: white;
-  border-radius: 12px;
-  padding: 15px;
-  display: flex;
-  align-items: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-}
-
-.goal-icon {
-  width: 50px;
-  height: 50px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 15px;
-  font-size: 1.3rem;
-  color: white;
-  background-color: #4a9998;
-}
-
-.goal-info {
-  flex: 1;
-}
-
-.goal-info h3 {
-  font-size: 0.95rem;
-  margin-bottom: 5px;
-  color: #002432;
-}
-
-.of-target {
-  color: #999;
-}
 
 /* ONLINE SHOPE SECTION  */
 

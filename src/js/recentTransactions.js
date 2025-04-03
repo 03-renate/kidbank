@@ -71,7 +71,7 @@ function sortIcon(product) {
 
     if (userAge < product.ageLimit) {
         return `
-        <div class="transaction-icon restricted">
+        <div class="transaction-icon restricted" style="background-color: #ee9b00;">
             <i class="fa-solid fa-circle-exclamation"></i>
         </div>`;
     }
@@ -79,7 +79,8 @@ function sortIcon(product) {
     const iconType = {
         refreshments: "fa-burger",
         gift: "fa-gift",
-        clothing: "fa-shirt"
+        clothing: "fa-shirt",
+        restricted: "fa-circle-exclamation"
     };
 
     return `
