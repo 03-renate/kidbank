@@ -1434,8 +1434,7 @@ h4 {
       #4a9998 30% 60%,
       #94d2bd 60% 65%,
       #b3cea3 65% 70%,
-      #d8a930 70% 75%,
-      #ee9b00 75% 100%
+      #ee9b00 70% 100%
     );
 
   transform: scale(0);
@@ -1479,7 +1478,7 @@ h4 {
 
 /* Different colors for each category */
 .category-color-entertainment::before {
-  background-color: #002432;
+  background-color: #94d2bd;
 }
 
 .category-color-electronics::before {
