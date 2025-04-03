@@ -312,23 +312,9 @@ body {
 }
 
 .profile-container .profile-img i {
-  color: #7082e6;
-}
-
-.profile-container #profile-name {
-  color: #313589;
-  text-transform: capitalize;
-}
-
-.profile-container .profile-img i {
   color: #005f73;
 }
 
-.profile-container #profile-name {
-  color: #002432;
-  text-transform: capitalize;
-  font-size: var(--p-size-medium);
-}
 /*RENATE - PROFILE - END*/
 
 /* RENATE - HERO SECTION - START */
@@ -705,11 +691,8 @@ body {
   height: 100vh;
   background-color: #fff;
   border-right: 1px solid #e1e4e8;
-
   position: fixed;
-
   position: absolute;
-
   top: 0;
   left: 0;
   display: flex;
@@ -839,10 +822,6 @@ body {
   font-size: 16px;
 }
 
-.collapsed .menu-item span {
-  display: none;
-}
-
 .menu-item:hover,
 .menu-item.active {
   background-color: #edf2ff;
@@ -867,11 +846,6 @@ body {
 .user-status {
   color: #002432;
   font-size: var(--p-size-medium);
-}
-
-.collapsed .user-profile {
-  opacity: 0;
-  pointer-events: none;
 }
 
 .avatar {
@@ -943,21 +917,8 @@ body {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
-.profile-container .profile-img i {
-  color: #7082e6;
-}
-
 .profile-container #profile-name {
   color: #313589;
-  text-transform: capitalize;
-}
-
-.profile-container .profile-img i {
-  color: #005f73;
-}
-
-.profile-container #profile-name {
-  color: #002432;
   text-transform: capitalize;
   font-size: var(--p-size-medium);
 }
