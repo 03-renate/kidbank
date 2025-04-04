@@ -506,7 +506,6 @@ body {
 }
 
 /* TOUBHA - RECENT TRANSACTIONS */
-/* Container layout */
 .transactions-monthly-overview-container {
   display: flex;
   flex-direction: column;
@@ -971,25 +970,6 @@ body {
   font-weight: 500;
 }
 
-/*.add-goal {
-  background-color: #5e72e4;
-  color: white;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-}
-span.add-goal {
-background-color: #f8f9fa;
-color: #5e72e4;
-}
- 
-  background-color: #f8f9fa;
-  color: #5e72e4;
-}*/
 
 /* Spending Categories */
 .category-list {
