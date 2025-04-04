@@ -542,7 +542,7 @@
           "allowedProducts",
           JSON.stringify(allowedProducts)
         );
-// CHANGE https://kidbank.com with the website URL after deploiment
+// AFTER DEPLOIMENT,THE "https://kidbank.com" MUST CHANGE TO THE DEPLOIMENT URL, IN THE "const checkoutURL" -To be able to load the checkout product list 
         const checkoutURL = `https://kidbank.com/checkout.html?products=${encodeURIComponent(
           JSON.stringify(allowedProducts)
         )}`;
